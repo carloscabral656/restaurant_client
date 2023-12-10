@@ -1,17 +1,26 @@
 <template>
-    <div>
-        
+
+    <!--  -->
+    <div class="">
         <router-link to="/">
-            <span>Voltar</span>
+            <span>Back</span>
         </router-link>
+
+        <div>
+            Não tem conta?
+            Cadastre-se
+        </div>
+    </div>
 
         <div class="">
             Login
-            <label for="">E-mail</label>
-            <input type="text" placeholder="" v-model="user.email">
+            <label for="email">E-m  ail</label>
+            <input id="email" type="text" placeholder="" v-model="user.email">
 
-            <label for="">Senha</label>
-            <input type="text" placeholder="" v-model="user.password">
+            <label for="password">Senha</label>
+            <input id="password" type="text" placeholder="" v-model="user.password">
+
+            <button>Entrar</button>
         </div>
     </div>
 </template>
