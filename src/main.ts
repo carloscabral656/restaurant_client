@@ -5,10 +5,14 @@ import router from './router'
 import store from './store'
 
 // Prime Vue imports ------------------------------------------------
-import PrimeVue from 'primevue/config'; // here
-import "primevue/resources/themes/saga-blue/theme.css"; //theme
-import "primevue/resources/primevue.min.css"; //core CSS
-import "primeicons/primeicons.css"; //icons
+import PrimeVue from 'primevue/config'; // Here
+import "primevue/resources/themes/saga-blue/theme.css"; // Theme
+import "primevue/resources/primevue.min.css"; // Core CSS
+import "primeicons/primeicons.css"; // Icons
+import "primeflex/primeflex.css"; // PrimeVue 
+
+// Components
+import Button from 'primevue/button'
 // ------------------------------------------------------------------
 
 
@@ -16,4 +20,5 @@ createApp(App)
 .use(store)
 .use(router)
 .use(PrimeVue)
+.component('ButtonVue', Button)
 .mount('#app')

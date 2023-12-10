@@ -1,17 +1,28 @@
 <template>
+    <div>
 
-    <!--  -->
-    <div class="">
-        <router-link to="/">
-            <span>Back</span>
-        </router-link>
+        <!-- First row (Back and Register User)-->
+        <div class="flex flex-row flex-wrap justify-content-between">
+            <div class="flex align-items-center justify-content">
+                <router-link to="/">
+                    <ButtonVue icon="pi pi-arrow-left" rounded/>
+                </router-link>
+            </div>
 
-        <div>
-            Não tem conta?
-            Cadastre-se
+            <div>
+                <div>Não tem conta?</div>
+                <router-link to="/register-user">
+                    Cadastre-se
+                </router-link>
+            </div>
         </div>
-    </div>
 
+        <!-- -->
+        <div class="">
+            Acesse seus restaurantes prediletos
+        </div>
+
+        <!-- Login Form -->
         <div class="">
             Login
             <label for="email">E-m  ail</label>
