@@ -1,19 +1,16 @@
 <template>
-  <router-view to="/"/>
+    <div>
+
+    </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "App",
-  components: {
-
-  }
+    name: "LoginView"
 });
 </script>
 
 <style>
 </style>
-
-
