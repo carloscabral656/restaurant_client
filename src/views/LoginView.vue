@@ -1,5 +1,8 @@
 <template>
-    <div>
+    <div class="
+        w-full max-w-full min-h-full h-full p-3
+        surface-800
+    ">
 
         <!-- First row (Back and Register User)-->
         <div class="flex flex-row flex-wrap justify-content-between">
@@ -18,14 +21,18 @@
         </div>
 
         <!-- -->
-        <div class="">
+        <div class="
+            w-full max-w-full h-30rem
+            flex align-items-center justify-content-start
+            text-3xl font-bold
+        ">
             Acesse seus restaurantes prediletos
         </div>
 
         <!-- Login Form -->
         <div class="">
             Login
-            <label for="email">E-m  ail</label>
+            <label for="email">E-mail</label>
             <input id="email" type="text" placeholder="" v-model="user.email">
 
             <label for="password">Senha</label>

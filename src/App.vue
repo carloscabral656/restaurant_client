@@ -14,6 +14,13 @@ export default defineComponent({
 </script>
 
 <style>
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+}
 </style>
 
 
