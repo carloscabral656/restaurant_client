@@ -39,24 +39,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 export default defineComponent({
-    name: "RegisterUserView",
+    name: "ResetPasswordView",
     data(){
         return {
-            user: {
-                name: null,
-                email: null,
-                password: null
-            }
-        }
-    },
-    methods: {
-        validate(){
-            return false;
+            email: null
         }
     }
 });
 </script>
-
-
-<style>
-</style>
