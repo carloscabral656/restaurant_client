@@ -13,6 +13,7 @@ import "primeflex/primeflex.css"; // PrimeVue
 
 // Components
 import Button from 'primevue/button'
+import InputText from 'primevue/inputtext';
 // ------------------------------------------------------------------
 
 
@@ -21,4 +22,5 @@ createApp(App)
 .use(router)
 .use(PrimeVue)
 .component('ButtonVue', Button)
+.component('InputTextVue', InputText)
 .mount('#app')
