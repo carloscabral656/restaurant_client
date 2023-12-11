@@ -1,4 +1,5 @@
 <template>
+  <ToastVue/>
   <router-view to="/"/>
 </template>
 

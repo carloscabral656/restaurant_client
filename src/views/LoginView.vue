@@ -1,5 +1,4 @@
 <template>
-    <ToastVue/>
     <div class="
         w-full max-w-full 
         min-h-full h-full p-3
