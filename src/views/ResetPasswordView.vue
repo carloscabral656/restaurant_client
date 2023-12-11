@@ -10,25 +10,22 @@
                 <ButtonVue icon="pi pi-arrow-left" rounded/>
             </router-link>
         </div>
-        <h1>Create Account</h1>
+
         <div class="
             w-4 flex flex-column 
-            align-items-center justify-content-start m-auto
+            align-items-center 
+            justify-content-center 
+            m-auto
         ">
+            <h1>Reset Password</h1>
             <div class="flex flex-column gap-2 mb-5 w-full">
                 <label for="username">E-mail</label>
-                <InputTextVue id="" type="text" placeholder="" size="large" v-model="user.email" />
-                <small id="username-help">Enter your username to reset your password.</small>
-            </div>
-
-            <div class="flex flex-column gap-3 mb-5 w-full">
-                <label for="username">Password</label>
-                <InputTextVue type="text" size="large" v-model="user.password" />
-                <small id="username-help">Enter your username to reset your password.</small>
+                <InputTextVue id="" type="text" placeholder="" size="large" v-model="email" />
+                <small id="username-help">Enter your e-mail to reset your password.</small>
             </div>
 
             <div class="flex flex-column gap-2 mb-3 w-full">
-                <ButtonVue size="large" label="Register" severity="danger" @click="validate"/>
+                <ButtonVue size="large" label="Send to my e-mail" severity="danger" @click="validate"/>
             </div>
     
         </div>
@@ -43,6 +40,18 @@ export default defineComponent({
     data(){
         return {
             email: null
+        }
+    },
+    methods: {
+        validate(){
+            this.$toast.add(
+                { 
+                    severity: 'success', 
+                    summary: 'Success', 
+                    detail: "If your e-mail's registered in our system an e-mail will be send.", 
+                    life: 3000 
+                }
+            );
         }
     }
 });
