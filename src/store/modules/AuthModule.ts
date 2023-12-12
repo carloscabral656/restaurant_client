@@ -25,7 +25,7 @@ const AuthModule = {
     mutations: {
         saveToken(state: any, token: string) {
             state.token = token;
-            return true;
+            state.authenticated = true
         }
     },
 
@@ -39,9 +39,7 @@ const AuthModule = {
          * @returns void
         */
        
-        authenticate({commit} : any, credentials: Credential) : void {
-            alert(AUTHENTICATE_ROUTE)
-
+        authenticate({commit}: any, credentials: Credential) : void {
             try{
                 axios
                 .post(
@@ -49,12 +47,12 @@ const AuthModule = {
                     credentials
                 )
                 .then((response) => {
-                    commit('saveToken')
+                    console.log( response)
+                    commit('saveToken', response.data.data.token)
                 });
             }catch(error){
-                console.log("Errpr", error)
+                console.log("Error", error)
             }
-            
         }
 
     }
