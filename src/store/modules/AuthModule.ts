@@ -9,17 +9,23 @@ const AuthModule = {
         // Token's api
         token: null,
 
+        // Athentication
+        authenticated: false
+
     },
     
     // 
     getters: {
-
+        isAuthenticated: (state: any) => {
+            return state.authenticated
+        }
     },
     
     // Method that can update the state
     mutations: {
-        saveToken(state : any, token: String){
+        saveToken(state: any, token: string) {
             state.token = token;
+            return true;
         }
     },
 
@@ -32,15 +38,23 @@ const AuthModule = {
          * @param
          * @returns void
         */
+       
         authenticate({commit} : any, credentials: Credential) : void {
-            axios
-            .post(
-                AUTHENTICATE_ROUTE,
-                credentials
-            )
-            .then((response) => {
-                commit('saveToken')
-            });
+            alert(AUTHENTICATE_ROUTE)
+
+            try{
+                axios
+                .post(
+                    AUTHENTICATE_ROUTE,
+                    credentials
+                )
+                .then((response) => {
+                    commit('saveToken')
+                });
+            }catch(error){
+                console.log("Errpr", error)
+            }
+            
         }
 
     }

@@ -60,6 +60,7 @@
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import { Credential } from '@/entities/Credential';
+import { mapGetters } from 'vuex'
 
 export default defineComponent({
     name: "LoginView",
@@ -70,6 +71,11 @@ export default defineComponent({
                 password: null,
             }
         }
+    },
+    computed: {
+        ...mapGetters('AuthModule', [
+            'isAuthenticated'
+        ])
     },
     methods: {
         validate(){
@@ -84,6 +90,10 @@ export default defineComponent({
             // API's call
             const credentials = new Credential(this.user.email, this.user.password);
             this.state.dispatch('authenticate', credentials);
+
+            if(this.isAuthenticated){
+                alert("Autenticado")
+            }
         }
     },
     setup(){

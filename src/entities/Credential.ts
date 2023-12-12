@@ -1,8 +1,8 @@
 export class Credential {
-    protected email : Number;
-    protected password: String;
+    protected email : number;
+    protected password: string;
 
-    constructor(email: Number, password: String){
+    constructor(email: number, password: string){
         this.email = email;
         this.password = password;
     }
