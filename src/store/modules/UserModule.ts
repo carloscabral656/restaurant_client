@@ -1,4 +1,3 @@
-import { AUTHENTICATE_ROUTE } from "@/helpers/RequestsRestaurantApi";
 import axios from "axios";
 
 const UserModule = {
@@ -18,28 +17,11 @@ const UserModule = {
     
     // Method that can update the state
     mutations: {
-
+        
     },
 
     // Asynchrony method (API calls)
     actions: {
-        
-        /**
-         * Method for authenticate in the restaurant api.
-         * @param
-         * @param
-         * @returns void
-        */
-        authenticate({commit} : any, credentials: any) : void {
-            axios
-            .post(
-                AUTHENTICATE_ROUTE,
-                credentials
-            )
-            .then((response) => {
-                console.log(response)
-            });
-        }
 
     }
 }

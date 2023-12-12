@@ -40,7 +40,7 @@
 import { defineComponent } from 'vue';
 export default defineComponent({
     name: "RegisterUserView",
-    data(){
+    data() {
         return {
             user: {
                 name: null,

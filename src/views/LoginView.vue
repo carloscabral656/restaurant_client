@@ -59,6 +59,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
+import { Credential } from '@/entities/Credential';
 
 export default defineComponent({
     name: "LoginView",
@@ -81,10 +82,8 @@ export default defineComponent({
             }
 
             // API's call
-            this.state.dispatch('authenticate', {
-                email: this.user.email,
-                password: this.user.password
-            });
+            const credentials = new Credential(this.user.email, this.user.password);
+            this.state.dispatch('authenticate', credentials);
         }
     },
     setup(){
