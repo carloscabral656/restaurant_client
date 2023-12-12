@@ -28,7 +28,7 @@
             flex align-items-center justify-content-start
             text-3xl font-bold
         ">
-            Acesse seus restaurantes prediletos
+            Acesse seus restaurantes prediletos {{isAuthenticated}}
         </div>
         
 

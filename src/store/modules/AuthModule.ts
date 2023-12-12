@@ -1,5 +1,4 @@
-import { AUTHENTICATE_ROUTE } from "@/helpers/RequestsRestaurantApi";
-import axios, { AxiosError } from "axios";
+import createAxiosInstance from "@/requests/ConfigsDefault";
 
 const AuthModule = {
 
@@ -18,6 +17,10 @@ const AuthModule = {
     getters: {
         isAuthenticated: (state: any) => {
             return state.authenticated
+        },
+
+        getToken: (state: any) : string => {
+            return state.token
         }
     },
     
@@ -41,13 +44,12 @@ const AuthModule = {
        
         authenticate({commit}: any, credentials: Credential) : void {
             try{
-                axios
+                createAxiosInstance(this)
                 .post(
-                    AUTHENTICATE_ROUTE,
+                    '/auth/login',
                     credentials
                 )
                 .then((response) => {
-                    console.log( response)
                     commit('saveToken', response.data.data.token)
                 });
             }catch(error){
