@@ -1,5 +1,5 @@
 import { AUTHENTICATE_ROUTE } from "@/helpers/RequestsRestaurantApi";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 
 const AuthModule = {
 

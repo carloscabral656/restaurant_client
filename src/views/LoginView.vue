@@ -73,7 +73,7 @@ export default defineComponent({
         }
     },
     computed: {
-        ...mapGetters('AuthModule', [
+        ...mapGetters([
             'isAuthenticated'
         ])
     },
