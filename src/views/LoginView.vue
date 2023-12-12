@@ -58,6 +58,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useStore } from 'vuex';
 
 export default defineComponent({
     name: "LoginView",
@@ -76,8 +77,21 @@ export default defineComponent({
                 !this.user.password
             ){
                 this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'E-mail e Password são necessários.', life: 3000 });
-            } 
-        },
+                return;
+            }
+
+            // API's call
+            this.state.dispatch('authenticate', {
+                email: this.user.email,
+                password: this.user.password
+            });
+        }
+    },
+    setup(){
+        const state = useStore();
+        return {
+            state
+        }
     }
 });
 </script>
