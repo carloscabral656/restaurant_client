@@ -32,24 +32,24 @@
         </div>
         
 
-        <div class="w-4 flex flex-column align-items-center justify-content-start m-auto">
-            <div class="flex flex-column gap-2 mb-5 w-full">
-                <label for="username">E-mail</label>
-                <InputTextVue id="" type="text" placeholder="" size="large" v-model="user.email" />
-                <small id="username-help">Enter your username to reset your password.</small>
+        <div class="flex flex-column align-items-center justify-content-start m-auto">
+            <div class="w-4 flex flex-column gap-2 mb-5 w-full">
+                <label for="email">E-mail</label>
+                <InputTextVue id="email" size="large" v-model="user.email" />
+                <small id="email">Enter your username to reset your password.</small>
             </div>
 
-            <div class="flex flex-column gap-3 mb-5 w-full">
-                <label for="username">Password</label>
-                <InputTextVue type="text" size="large" v-model="user.password" />
-                <small id="username-help">Enter your username to reset your password.</small>
+            <div class="w-4 flex flex-column gap-2 mb-5 w-full">
+                <label for="password">Password</label>
+                <PasswordVue id="password" inputClass="w-full" size="large" :feedback="false" v-model="user.password" />
+                <small id="password">Enter your username to reset your password.</small>
             </div>
 
-            <div class="flex flex-column gap-2 mb-3 w-full">
+            <div class="w-4 flex flex-column gap-2 mb-3 w-full">
                 <ButtonVue size="large" label="Entrar" severity="danger" @click="validate"/>
             </div>
             
-            <router-link to="/reset-password" class="text-white no-underline font-bold">
+            <router-link to="/reset-password" class="w-4 text-white no-underline font-bold">
                 Esqueceu sua senha?
             </router-link>
         </div>

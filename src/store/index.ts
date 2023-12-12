@@ -1,41 +1,13 @@
-import axios from 'axios'
 import { createStore } from 'vuex'
-import {AUTHENTICATE_ROUTE} from '@/helpers/RequestsRestaurantApi'
+import UserModule from '@/store/modules/UserModule'
 
-export default createStore({
-  
-  // Aplication's state (Core Informations)
-  state: {
-    // User's registered and authenticated in the API.
-    user: {}
-  },
-  
-  getters: {
-  },
-  
-  // Method that can update the state
-  mutations: {
-
-  },
-
-
-  
-  // Asynchrony method (API calls)
-  actions: {
-
-    authenticate({commit}, credentials){
-      axios
-      .post(
-        AUTHENTICATE_ROUTE,
-        credentials
-      )
-      .then((response) => {
-        console.log(response)
-      });
-    }
-
-  },
+const store = createStore({
   modules: {
-
+    UserModule // User's logic module
   }
 })
+
+export default store;
+
+
+
