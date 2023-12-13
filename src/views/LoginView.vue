@@ -77,6 +77,11 @@ export default defineComponent({
             'isAuthenticated'
         ])
     },
+    watch: {
+        isAuthenticated(){
+            this.$router.push('/index')
+        }
+    },
     methods: {
         validate(){
             if(
@@ -90,10 +95,6 @@ export default defineComponent({
             // API's call
             const credentials = new Credential(this.user.email, this.user.password);
             this.state.dispatch('authenticate', credentials);
-
-            if(this.isAuthenticated){
-                alert("Autenticado")
-            }
         }
     },
     setup(){
