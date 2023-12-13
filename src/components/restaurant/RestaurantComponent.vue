@@ -2,8 +2,7 @@
     <div class="
         relative
         flex flex-row
-        w-6 h-16rem
-        m-2
+        w-100 h-100
         surface-ground
     ">
         <div class="
