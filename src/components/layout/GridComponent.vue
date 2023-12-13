@@ -23,6 +23,15 @@ import { defineComponent } from 'vue';
 export default defineComponent({
     name: "GridComponent",
 
+    data() {
+        return {
+            viewport: {
+                width: 0,
+                height: 0
+            }
+        };
+    },
+
     props: {
         
         // 
@@ -36,7 +45,7 @@ export default defineComponent({
             type: Object,
             required: true
         }
-        
+
     },
 
     computed: {
@@ -66,6 +75,34 @@ export default defineComponent({
             return this.data
         },
 
+    },
+
+    watch: {
+        viewport(newValue, oldValue){
+            alert("asdasd")
+        }
+    },
+
+    mounted() {
+        this.setViewportDimensions();
+        window.addEventListener('resize', this.setViewportDimensions);
+    },
+
+    beforeUnmount() {
+        window.removeEventListener('resize', this.setViewportDimensions);
+    },
+
+    methods: {
+        setViewportDimensions() {
+            this.viewport.width = window.innerWidth;
+            this.viewport.height = window.innerHeight;
+            console.log(this.viewport.height)
+            console.log(this.viewport.width)
+        },
+
+        getViewportDimensions() {
+            return this.viewport;
+        }
     },
 
     setup() {
