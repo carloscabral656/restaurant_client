@@ -97,6 +97,9 @@ export default defineComponent({
             this.state.dispatch('authenticate', credentials);
         }
     },
+    created() {
+        if(this.isAuthenticated) this.$router.push('/index')
+    },
     setup(){
         const state = useStore();
         return {
