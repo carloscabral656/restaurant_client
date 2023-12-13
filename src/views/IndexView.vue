@@ -1,10 +1,12 @@
 <template>
     <HeaderComponent />
+    <RestaurantComponent />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import HeaderComponent from '@/components/index/HeaderComponent.vue'
+import RestaurantComponent from '@/components/restaurant/RestaurantComponent.vue'
 import { useStore } from 'vuex';
 
 export default defineComponent({
@@ -15,7 +17,8 @@ export default defineComponent({
         }
     },
     components: {
-        HeaderComponent
+        HeaderComponent,
+        RestaurantComponent
     },
     created() {
         this.store.dispatch('getUser');
