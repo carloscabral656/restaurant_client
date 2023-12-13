@@ -32,7 +32,11 @@ const AuthModule = {
             localStorage.setItem('token', token)
         },
 
-        storeTokenFromCache(state: any, token: string){
+        storeTokenFromCache(state: any, token: string) {
+            if(!token) {
+                state.authenticated = false
+                return;
+            }
             state.token = token
             state.authenticated = true
         }
@@ -47,7 +51,6 @@ const AuthModule = {
          * @param
          * @returns void
         */
-       
         authenticate({commit}: any, credentials: Credential) : void {
             try{
                 createAxiosInstance(this)
@@ -67,7 +70,6 @@ const AuthModule = {
          * 
          * 
         */
-
         retrieveTokenFromCache({commit}: any) {
             const token = localStorage.getItem('token');
             commit('storeTokenFromCache', token);
