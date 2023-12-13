@@ -15,17 +15,12 @@ export default defineComponent({
 </script>
 
 <style>
-body{
-  padding: 0;
+html,
+body {
+  min-height: 100vh; /* 100% da altura da janela de visualização */
+  height: 100vh;
   margin: 0;
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-}
-
-#app{
-  width: 100vw;
-  height: 100vh;
+  padding: 0;
 }
 </style>
 

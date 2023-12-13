@@ -1,7 +1,7 @@
 <template>
     <div class="
-        w-full max-w-full 
-        min-h-full h-full p-3
+        h-full min-h-screen
+        p-4
         surface-900
         text-white
     ">
