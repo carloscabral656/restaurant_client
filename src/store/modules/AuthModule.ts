@@ -24,10 +24,16 @@ const AuthModule = {
         }
     },
     
-    // Method that can update the state
+    // Method able to update the state
     mutations: {
         saveToken(state: any, token: string) {
             state.token = token;
+            state.authenticated = true
+            localStorage.setItem('token', token)
+        },
+
+        storeTokenFromCache(state: any, token: string){
+            state.token = token
             state.authenticated = true
         }
     },
@@ -55,6 +61,16 @@ const AuthModule = {
             }catch(error){
                 console.log("Error", error)
             }
+        },
+        
+        /**
+         * 
+         * 
+        */
+
+        retrieveTokenFromCache({commit}: any) {
+            const token = localStorage.getItem('token');
+            commit('storeTokenFromCache', token);
         }
 
     }
