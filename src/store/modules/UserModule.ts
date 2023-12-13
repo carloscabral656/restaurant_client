@@ -13,7 +13,9 @@ const UserModule = {
     
     // 
     getters: {
-
+        user: (state: any) : User => {
+            return state.user
+        }
     },
     
     // Method that can update the state

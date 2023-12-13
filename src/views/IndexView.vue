@@ -1,5 +1,5 @@
 <template>
-    <HeaderComponent user=""/>
+    <HeaderComponent />
 </template>
 
 <script lang="ts">
