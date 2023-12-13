@@ -1,8 +1,7 @@
 <template>
     <main class="w-100">
-        <h1>All Restaurants</h1>
         <GridComponent 
-            :data="[1]"
+            :data="[{}, {}, {}, {}]"
             :totalItemsInLine=4
             :component="RestaurantComponent"
         />

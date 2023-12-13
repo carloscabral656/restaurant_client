@@ -1,6 +1,8 @@
 <template>
     <div 
-        class="grid m-0"
+        class="
+            grid m-0
+        "
         v-for="line in lines"
         :key="line"
     >
@@ -50,17 +52,17 @@ export default defineComponent({
         },
 
         // Compute the total of lines the Grid must have
-        lines(): number{
+        lines(): number {
             return Math.ceil(this.lengthData/this.totalItemsInLineComputed);
         },
         
         // Compute the number of columns the Grid must have
-        columns(): string{
-            return `col-${12/this.totalItemsInLineComputed}`
+        columns(): string  {
+            return `lg:col-${12/this.totalItemsInLineComputed} md:col-${12/this.totalItemsInLineComputed} sm:col-12`
         },
         
         // 
-        computedData(): any{
+        computedData(): any {
             return this.data
         },
 
