@@ -11,17 +11,18 @@
             w-full h-16rem
             relative
         ">
-            <div class="h-8rem relative">a</div>
+            <div class="h-8rem relative surface-900">a</div>
             <div class="h-8rem relative">a</div>
         </div>
 
         <div class="
             absolute
-            top-0 left-0
-            w-100 h-5rem
+            align-self-center justify-self-center
+            w-8rem h-8rem
+            border-circle
+            bg-blue-400
             z-1
         ">
-            asdasd
         </div>
     </div>
 </template>
