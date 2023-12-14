@@ -3,28 +3,36 @@
         border-round
         relative
         flex flex-row
-        w-100 h-100
+        w-100 
+        sm:h-8rem
+        md:h-8rem
+        lg:h-10rem
+        h-8rem
     ">
         <!-- Containers -->
         <div class="
-            flex flex-column w-full 
-            lg: h-14rem flex-column
-            md: h-8rem flex-column
-            sm: h-4rem flex-row
+            flex flex-column flex-1
+            w-100  
             relative
+            h-10rem
         ">
             <div class="
-                lg: h-8rem
-                md: h-4rem
-                sm: h-2rem
-                relative surface-900
+                w-100
+                relative 
+                surface-900
+                sm:h-4rem
+                md:h-4rem
+                lg:h-5rem
+                h-5rem
             "></div>
 
             <div class="
-                lg: h-8rem
-                md: h-4rem
-                sm: h-2rem
+                w-100
                 relative
+                sm:h-4rem
+                md:h-4rem
+                lg:h-5rem
+                h-5rem
             "></div>
         </div>
 
@@ -33,10 +41,12 @@
             align-self-center justify-self-center
             border-circle
             bg-blue-400
-            z-1
-            lg:w-8rem h-8rem ml-3
-            md:w-4rem h-4rem
-            sm:w-2rem h-2rem
+            ml-3
+            sm:w-5rem sm:h-5rem 
+            md:w-5rem md:h-5rem  
+            lg:w-5rem lg:h-5rem
+            xl:w-7rem xl:h-7rem 
+            w-5rem h-5rem 
         ">
         </div>
     </div>
@@ -50,5 +60,5 @@ export default defineComponent({
     props: {
 
     }
-});
+ });
 </script>

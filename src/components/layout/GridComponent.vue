@@ -1,4 +1,9 @@
 <template>
+    {{ currentDeviceSize.concat(` - ${this.viewport.width}`)}}
+    <br>
+    {{ lines }}
+    <br>
+    {{ totalItemsInLineComputed }}
     <div 
         class="
             grid m-0
@@ -52,7 +57,11 @@ export default defineComponent({
 
         // Calculate the number of items the Grid must have in each line
         totalItemsInLineComputed(): number {
-            return this.totalItemsInLine || 1
+            if(this.currentDeviceSize === 'sm') return 1;
+            else if(this.currentDeviceSize === 'md') return 2;
+            else if(this.currentDeviceSize === 'lg') return 2;
+            else if(this.currentDeviceSize === 'xl') return 3;
+            return 1
         },
 
         // Compute the data's length from retrieved prop
@@ -67,7 +76,12 @@ export default defineComponent({
         
         // Compute the number of columns the Grid must have
         columns(): string  {
-            return `lg:col-${12/this.totalItemsInLineComputed} md:col-${12/this.totalItemsInLineComputed} sm:col-12`
+            return `
+                sm:col-12
+                md:col-${12/this.totalItemsInLineComputed} 
+                lg:col-${12/this.totalItemsInLineComputed} 
+                col-12
+                `
         },
         
         // 
@@ -75,11 +89,12 @@ export default defineComponent({
             return this.data
         },
 
-    },
-
-    watch: {
-        viewport(newValue, oldValue){
-            alert("asdasd")
+        currentDeviceSize(): string {
+            if(this.viewport.width <= 768) return 'sm'
+            else if(this.viewport.width <= 1024) return 'md'
+            else if(this.viewport.width <= 1280) return 'lg' 
+            else if(this.viewport.width <= 1536) return 'xl'
+            else return 'xl'
         }
     },
 
@@ -96,8 +111,6 @@ export default defineComponent({
         setViewportDimensions() {
             this.viewport.width = window.innerWidth;
             this.viewport.height = window.innerHeight;
-            console.log(this.viewport.height)
-            console.log(this.viewport.width)
         },
 
         getViewportDimensions() {
