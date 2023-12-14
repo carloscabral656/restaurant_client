@@ -1,13 +1,15 @@
 <template>
     <div class="
-        border-round
         relative
         flex flex-row
         w-100 
-        sm:h-8rem
-        md:h-8rem
-        lg:h-10rem
+        sm:h-8rem sm:border-round-sm
+        md:h-8rem md:border-round-md
+        lg:h-10rem lg:border-round-lg
+        xl:h-10rem xl:border-round-xl
         h-8rem
+        overflow-hidden
+        border-round
     ">
         <!-- Containers -->
         <div class="
