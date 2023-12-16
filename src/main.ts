@@ -1,9 +1,9 @@
+import "reflect-metadata";
 import { createApp } from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 import router from './router'
 import store from './store'
-
 // ------------------------------------------------------------------
 //                        Prime Vue's imports
 // ------------------------------------------------------------------
@@ -33,6 +33,7 @@ import Password from 'primevue/password';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 // ------------------------------------------------------------------
+
 
 // ------------------------------------------------------------------
 //                       Actions needed in reload 

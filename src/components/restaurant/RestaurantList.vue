@@ -13,6 +13,8 @@
 import { defineComponent } from 'vue';
 import GridComponent from '@/components/layout/GridComponent.vue'
 import RestaurantComponent from '@/components/restaurant/RestaurantComponent.vue'
+import { useStore } from 'vuex';
+import store from '@/store';
 
 export default defineComponent({
     name: "RestaurantList",
@@ -23,6 +25,15 @@ export default defineComponent({
     },
     components: {
         GridComponent
+    },
+    mounted() {
+        store.dispatch('getRestaurants')
+    },
+    state() {
+        const store = useStore();
+        return {
+            store
+        }
     }
 });
 </script>

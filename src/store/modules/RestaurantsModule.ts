@@ -1,4 +1,9 @@
+import Address from "@/entities/Address";
+import Gastronomy from "@/entities/Gastronomy";
+import Owner from "@/entities/Owner";
+import Restaurant from "@/entities/Restaurant";
 import createAxiosInstance from "@/requests/ConfigsDefault";
+import { plainToClass, plainToInstance } from "class-transformer";
 
 const AuthModule = {
 
@@ -6,7 +11,7 @@ const AuthModule = {
     state: {
 
        //
-       restaurants: []
+       restaurants: [] as Array<Restaurant>
 
     },
     
@@ -17,8 +22,15 @@ const AuthModule = {
     
     // Method that can update the state
     mutations: {
-        saveRestaurants(state: any): void{
-            state.restaurants = state
+        saveRestaurants(state: any, restaurants: Array<any>): void {
+            restaurants.map((restaurant: any) =>  {
+                try{
+                    const restaurantConverted = plainToInstance(Restaurant, restaurant);
+                    state.restaurants.push(restaurantConverted);
+                }catch(error){
+                    console.log(error)
+                }
+            });
         }
     },
 
@@ -33,11 +45,10 @@ const AuthModule = {
         getRestaurants({commit}: any): void {
             try{
                 createAxiosInstance(this)
-                .get(
-                    '/v1/restaurants'
-                )
+                .get('/restaurants')
                 .then((response) => {
-                    commit('saveRestaurants', response.data.data.token)
+                    const restaurants = response.data
+                    commit('saveRestaurants', restaurants)
                 });
             }catch(error){
                 console.log("Error", error)
