@@ -1,8 +1,8 @@
 <template>
     <main class="w-100">
         <GridComponent 
-            :data="[{}, {}, {}, {}]"
-            :totalItemsInLine=4
+            :data="restaurants"
+            :totalItemsInLineComputed=3
             :component="RestaurantComponent"
         />
     </main>
@@ -11,10 +11,11 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import GridComponent from '@/components/layout/GridComponent.vue'
-import RestaurantComponent from '@/components/restaurant/RestaurantComponent.vue'
+import GridComponent from '@/components/layout/GridComponent.vue';
+import RestaurantComponent from '@/components/restaurant/RestaurantComponent.vue';
 import { useStore } from 'vuex';
 import store from '@/store';
+import { mapGetters } from 'vuex'
 
 export default defineComponent({
     name: "RestaurantList",
@@ -22,6 +23,9 @@ export default defineComponent({
         return {
             RestaurantComponent
         }
+    },
+    computed: {
+        ...mapGetters(['restaurants'])
     },
     components: {
         GridComponent

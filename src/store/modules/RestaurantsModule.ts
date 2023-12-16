@@ -17,7 +17,9 @@ const AuthModule = {
     
     // 
     getters: {
-       
+        restaurants: (state: any): Array<Restaurant> => {
+            return state.restaurants
+        }
     },
     
     // Method that can update the state

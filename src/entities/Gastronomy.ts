@@ -38,6 +38,10 @@ export default class Gastronomy {
         return this._name;
     }
 
+    get description(): string {
+        return this._description;
+    }
+
     get image(): string {
         return this._image;
     }

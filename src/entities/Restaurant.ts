@@ -28,9 +28,8 @@ export default class Restaurant {
     private _image: string;
 
     @Expose({name: 'evaluation'})
-    @Type(() => Evaluation)
     @IsNotEmpty()
-    private _evaliation: Evaluation;
+    private _evaliation: number;
 
     @Expose({name: 'gastronomy'})
     @Type(() => Gastronomy)
@@ -47,7 +46,7 @@ export default class Restaurant {
     @IsNotEmpty()
     private _address: Address;
 
-    constructor(id: number, name: string, description: string, image: string, gastronomy: Gastronomy, owner: Owner, evaluation: Evaluation, address: Address){
+    constructor(id: number, name: string, description: string, image: string, gastronomy: Gastronomy, owner: Owner, evaluation: number, address: Address){
         this._id = id;
         this._name = name;
         this._description = description;
@@ -56,6 +55,18 @@ export default class Restaurant {
         this._owner = owner;
         this._evaliation = evaluation;
         this._address = address;
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
+    get gastronomy(): Gastronomy {
+        return this._gastronomy;
+    }
+
+    get evaluation(): number {
+        return this._evaliation;
     }
 
 }

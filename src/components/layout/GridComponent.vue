@@ -1,22 +1,7 @@
 <template>
-    {{ currentDeviceSize.concat(` - ${this.viewport.width}`)}}
-    <br>
-    {{ lines }}
-    <br>
-    {{ totalItemsInLineComputed }}
-    <div 
-        class="
-            grid m-0
-        "
-        v-for="line in lines"
-        :key="line"
-    >
-        <div
-            :class="columns"
-            v-for="item in totalItemsInLineComputed"
-            :key="item"
-        >
-            <component :is="component" :data="computedData[currentIndex++]"></component>
+    <div class="grid m-0" v-for="line in lines" :key="line">
+        <div :class="columns"  v-for="item in totalItemsInLineComputed" :key="item">
+            <component v-if="currentIndex < lengthData" :is="component" :data="computedData[currentIndex++]"></component>
         </div>
     </div>
 </template>
@@ -76,12 +61,7 @@ export default defineComponent({
         
         // Compute the number of columns the Grid must have
         columns(): string  {
-            return `
-                sm:col-12
-                md:col-${12/this.totalItemsInLineComputed} 
-                lg:col-${12/this.totalItemsInLineComputed} 
-                col-12
-                `
+            return `sm:col-12 md:col-${12/this.totalItemsInLineComputed}  lg:col-${12/this.totalItemsInLineComputed}  col-12`
         },
         
         // 
