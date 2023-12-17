@@ -4,6 +4,7 @@ import SplashView from "@/views/SplashView.vue"
 import RegisterUserView from "@/views/RegisterUserView.vue"
 import ResetPasswordView from "@/views/ResetPasswordView.vue"
 import IndexView from "@/views/IndexView.vue"
+import RestaurantView from '@/views/RestaurantView.vue'
 
 const routes = [
   {
@@ -30,6 +31,11 @@ const routes = [
     path: '/index',
     name: 'IndexView',
     component: IndexView
+  },
+  {
+    path: '/restaurant/:id',
+    name: 'Restaurant',
+    component: RestaurantView
   }
 ]
 

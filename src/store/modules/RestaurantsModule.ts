@@ -11,7 +11,9 @@ const AuthModule = {
     state: {
 
        //
-       restaurants: [] as Array<Restaurant>
+       restaurants: [] as Array<Restaurant>,
+
+       choosenRestaurant: {} as Restaurant
 
     },
     
@@ -24,6 +26,10 @@ const AuthModule = {
     
     // Method that can update the state
     mutations: {
+
+        /**
+         * 
+        */
         saveRestaurants(state: any, restaurants: Array<any>): void {
             restaurants.map((restaurant: any) =>  {
                 try{
@@ -33,6 +39,15 @@ const AuthModule = {
                     console.log(error)
                 }
             });
+        },
+
+
+        /**
+         * 
+        */
+        saveChoosenRestaurant(state: any, restaurant: any): void {
+            const choosenRestaurantConverted = plainToInstance(Restaurant, restaurant);
+            state.choosenRestaurant = choosenRestaurantConverted;
         }
     },
 
@@ -51,6 +66,21 @@ const AuthModule = {
                 .then((response) => {
                     const restaurants = response.data
                     commit('saveRestaurants', restaurants)
+                });
+            }catch(error){
+                console.log("Error", error)
+            }
+        },
+
+
+        getChoosenRestaurant({commit}: any, id: number): void {
+            try{
+                createAxiosInstance(this)
+                .get(`/restaurants/${id}`)
+                .then(response => {
+                    console.log(response)
+                    const restaurant = response.data.data;
+                    commit('saveChoosenRestaurant', restaurant);
                 });
             }catch(error){
                 console.log("Error", error)

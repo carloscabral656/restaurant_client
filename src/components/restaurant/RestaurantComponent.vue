@@ -40,7 +40,7 @@ export default defineComponent({
     name: "RestaurantComponent",
     methods: {
         chooseRestaurant(){
-            alert(this.data.name)
+            this.$router.push(`/restaurant/${this.data.id}`)
         }
     },
     computed: {

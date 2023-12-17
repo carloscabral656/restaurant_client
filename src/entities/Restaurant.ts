@@ -4,6 +4,7 @@ import Gastronomy from "./Gastronomy";
 import Owner from "./Owner";
 import { Evaluation } from "./Evaluation";
 import Address from "./Address";
+import Menu from "./Menu";
 
 export default class Restaurant {
 
@@ -22,7 +23,7 @@ export default class Restaurant {
     @IsString()
     private _description: string;
 
-    @Expose({name: 'image_restaurant'})
+    @Expose({name: 'img_restaurant'})
     @IsNotEmpty()
     @IsString()
     private _image: string;
@@ -46,7 +47,12 @@ export default class Restaurant {
     @IsNotEmpty()
     private _address: Address;
 
-    constructor(id: number, name: string, description: string, image: string, gastronomy: Gastronomy, owner: Owner, evaluation: number, address: Address){
+    @Expose({name: 'menus'})
+    @Type(() => Menu)
+    @IsNotEmpty()
+    private _menus: Menu[];
+
+    constructor(id: number, name: string, description: string, image: string, gastronomy: Gastronomy, owner: Owner, evaluation: number, address: Address, menus: Menu[]){
         this._id = id;
         this._name = name;
         this._description = description;
@@ -55,6 +61,11 @@ export default class Restaurant {
         this._owner = owner;
         this._evaliation = evaluation;
         this._address = address;
+        this._menus = menus;
+    }
+
+    get id(): number {
+        return this._id;
     }
 
     get name(): string {

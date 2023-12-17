@@ -1,6 +1,6 @@
 <template>
     <HeaderComponent />
-    <RestaurantList cols=4 />
+    <RestaurantList/>
 </template>
 
 <script lang="ts">

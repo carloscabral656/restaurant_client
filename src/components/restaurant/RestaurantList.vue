@@ -2,7 +2,6 @@
     <main class="w-100">
         <GridComponent 
             :data="restaurants"
-            :totalItemsInLineComputed=3
             :component="RestaurantComponent"
         />
     </main>
