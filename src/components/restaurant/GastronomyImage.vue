@@ -1,6 +1,6 @@
 <template>
     <!-- Gastronomy Image -->
-    <div class="w-100 relative surface-900 h-5rem sm:h-4rem md:h-4rem lg:h-5rem xl:h-7rem" style=""></div>
+    <div class="w-100 relative surface-900 h-5rem bg-cover sm:h-4rem md:h-4rem lg:h-5rem xl:h-7rem" :style="gastronomyImageBackground"></div>
 </template>
 
 <script lang="ts">

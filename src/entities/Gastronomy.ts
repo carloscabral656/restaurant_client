@@ -18,7 +18,7 @@ export default class Gastronomy {
     @IsString()
     private _description: string;
 
-    @Expose({name: 'imagem'})
+    @Expose({name: 'img_gastronomy'})
     @IsNotEmpty()
     @IsString()
     private _image: string;

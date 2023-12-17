@@ -3,9 +3,9 @@
         sm:h-8rem sm:border-round-sm
         md:h-8rem md:border-round-md
         lg:h-10rem lg:border-round-lg
-        xl:h-14rem xl:border-round-xl
-        h-8rem overflow-hidden border-round
-    ">
+        xl:h-14rem xl:border-round-xl 
+        h-8rem overflow-hidden border-round border-solid border-50 shadow-3 cursor-pointer
+    " @click="chooseRestaurant">
         <!-- Containers -->
         <div class="flex flex-column flex-1 w-100 relative h-100">
 
@@ -38,6 +38,11 @@ import GastronomyImage from '@/components/restaurant/GastronomyImage.vue';
 
 export default defineComponent({
     name: "RestaurantComponent",
+    methods: {
+        chooseRestaurant(){
+            alert(this.data.name)
+        }
+    },
     computed: {
         restaurantImage() : string {
             return `background-image: url('${this.data.image}')`;
