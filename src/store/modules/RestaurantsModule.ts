@@ -1,9 +1,6 @@
-import Address from "@/entities/Address";
-import Gastronomy from "@/entities/Gastronomy";
-import Owner from "@/entities/Owner";
 import Restaurant from "@/entities/Restaurant";
 import createAxiosInstance from "@/requests/ConfigsDefault";
-import { plainToClass, plainToInstance } from "class-transformer";
+import { plainToInstance } from "class-transformer";
 
 const AuthModule = {
 
@@ -21,6 +18,10 @@ const AuthModule = {
     getters: {
         restaurants: (state: any): Array<Restaurant> => {
             return state.restaurants
+        },
+
+        choosenRestaurant: (state: any): any => {
+            return state.choosenRestaurant;
         }
     },
     
@@ -58,7 +59,6 @@ const AuthModule = {
          * Method for retrieve in the restaurant api.
          * @returns void
         */
-       
         getRestaurants({commit}: any): void {
             try{
                 createAxiosInstance(this)
@@ -72,13 +72,15 @@ const AuthModule = {
             }
         },
 
-
+        /**
+         * Method for retrieve in the restaurant api.
+         * @returns void
+        */
         getChoosenRestaurant({commit}: any, id: number): void {
             try{
                 createAxiosInstance(this)
                 .get(`/restaurants/${id}`)
                 .then(response => {
-                    console.log(response)
                     const restaurant = response.data.data;
                     commit('saveChoosenRestaurant', restaurant);
                 });

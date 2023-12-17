@@ -9,6 +9,11 @@ export default class Item {
     @IsNumber()
     private _id: number;
 
+    @Expose({name: 'name'})
+    @IsNotEmpty()
+    @IsString()
+    private _name: string;
+
     @Expose({name: 'description'})
     @IsNotEmpty()
     @IsString()
@@ -28,11 +33,21 @@ export default class Item {
     @Type(() => Sale)
     private _sale: Sale;
 
-    constructor(id: number, description: string, img_item: string, unit_price: number, sale: Sale) {
+    constructor(id: number, description: string, name: string, img_item: string, unit_price: number, sale: Sale) {
         this._id = id;
+        this._name = name;
         this._description = description;
         this._img_item = img_item;
         this._unit_price = unit_price;
         this._sale = sale;
     }
+
+    get id(): number {
+        return this._id;
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
 }

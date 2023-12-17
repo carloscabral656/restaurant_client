@@ -80,6 +80,10 @@ export default class Restaurant {
         return this._evaliation;
     }
 
+    get menus(): Menu[] {
+        return this._menus;
+    }
+
     get image(): string {
         return this._image;
     }
