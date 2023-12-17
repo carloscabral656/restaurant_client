@@ -69,4 +69,8 @@ export default class Restaurant {
         return this._evaliation;
     }
 
+    get image(): string {
+        return this._image;
+    }
+
 }

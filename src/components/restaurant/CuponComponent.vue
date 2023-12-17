@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-row justify-content-between">
-        <i class="pi pi-ticket mr-2 text-red-500"></i> <span class="text-red-300">3, 99</span>
+        <i class="pi pi-ticket mr-2 text-red-500"></i> <span class="text-red-300 font-bold">R$ 3, 99</span>
     </div>
 </template>
 

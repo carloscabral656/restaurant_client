@@ -23,6 +23,7 @@ import InputText from 'primevue/inputtext';
 import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Password from 'primevue/password';
+import Image from "primevue/image";
 // ------------------------------------------------------------------
 
 
@@ -52,4 +53,5 @@ createApp(App)
 .component('InputTextVue', InputText)
 .component('ToastVue', Toast)
 .component('PasswordVue', Password)
+.component('ImageVue',Image)
 .mount('#app')

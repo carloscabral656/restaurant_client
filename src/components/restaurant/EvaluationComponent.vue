@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i class="pi pi-star-fill text-orange-400"></i> <span class="text-orange-300">{{ evaluation ?? ' - ' }}</span>
+        <i class="pi pi-star-fill text-orange-400 font-bold"></i> <span class="text-orange-300 font-bold">{{ evaluation ?? ' - ' }}</span>
     </div>
 </template>
 

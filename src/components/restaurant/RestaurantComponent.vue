@@ -7,12 +7,10 @@
         h-8rem overflow-hidden border-round
     ">
         <!-- Containers -->
-        <div class="flex flex-column flex-1 w-100 relative h-100
-        ">
-            <div class="w-100 relative surface-900 h-5rem
-                sm:h-4rem md:h-4rem lg:h-5rem xl:h-7rem
-            ">
-            </div>
+        <div class="flex flex-column flex-1 w-100 relative h-100">
+
+             <!-- Gastronomy's Image -->
+            <GastronomyImage :gastronomyImage="data?.gastronomy.image"/>
 
             <div class="
                 w-100 relative h-5rem text-center
@@ -26,13 +24,8 @@
             </div>
         </div>
 
-        <div class="absolute align-self-center justify-self-center border-circle bg-blue-400 ml-3 w-5rem h-5rem 
-            sm:w-5rem sm:h-5rem 
-            md:w-5rem md:h-5rem  
-            lg:w-5rem lg:h-5rem
-            xl:w-7rem xl:h-7rem 
-        ">
-        </div>
+        <!-- Restaurant's Image -->
+        <RestaurantImage :restaurantImage="data?.image"/>
     </div>
 </template>
 
@@ -40,9 +33,16 @@
 import Restaurant from '@/entities/Restaurant';
 import { defineComponent } from 'vue';
 import RestaurantInformationComponent from '@/components/restaurant/RestaurantInformationComponent.vue';
+import RestaurantImage from '@/components/restaurant/RestaurantImage.vue';
+import GastronomyImage from '@/components/restaurant/GastronomyImage.vue';
 
 export default defineComponent({
     name: "RestaurantComponent",
+    computed: {
+        restaurantImage() : string {
+            return `background-image: url('${this.data.image}')`;
+        }
+    },
     props: {
         data: {
             type: Restaurant,
@@ -50,7 +50,9 @@ export default defineComponent({
         }
     },
     components: {
-        RestaurantInformationComponent
+        RestaurantInformationComponent,
+        RestaurantImage,
+        GastronomyImage
     }
  });
 </script>
