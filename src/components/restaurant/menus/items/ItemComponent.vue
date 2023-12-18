@@ -1,22 +1,7 @@
 <template>
-    <CardVue style="width: 300px;" :pt="{
-        header: (options: any) => ({
-            style: {
-                'height': '40%',
-                computedItemImage
-            }
-        }),
+    <CardVue style="width: 300px;" class="border-round-xs shadow-1 ml-3 h-100 p-0">
 
-        title: (options: any) => ({
-            style: {
-                'height': '40%'
-            }
-        }),
-
-
-    }">
-
-        <!-- Item's foto -->
+        <!-- Item's image -->
         <template #header>
             <div class="
                 surface-900 w-100 h-9rem 
@@ -24,7 +9,8 @@
                 md:h-7rem bg-cover
                 lg:h-8rem bg-cover
                 xl:h-10rem bg-cover" 
-                :style="computedItemImage"></div>
+                :style="computedItemImage">
+            </div>
         </template>
 
         <!-- Item's name -->

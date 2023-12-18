@@ -1,8 +1,8 @@
 <template>
-    <div class=" relative flex flex-row w-100 
-        sm:h-8rem sm:border-round-sm
-        md:h-8rem md:border-round-md
-        lg:h-10rem lg:border-round-lg
+    <div class="relative flex flex-row w-100 
+        sm:h-10rem sm:border-round-sm
+        md:h-12rem md:border-round-md
+        lg:h-14rem lg:border-round-lg
         xl:h-14rem xl:border-round-xl 
         h-8rem overflow-hidden border-round border-solid border-50 shadow-3 cursor-pointer
     " @click="chooseRestaurant">
@@ -40,7 +40,7 @@ export default defineComponent({
     name: "RestaurantComponent",
     methods: {
         chooseRestaurant(){
-            this.$router.push(`/restaurant/${this.data.id}`)
+            this.$router.push(`/restaurant/${this.data.id}`);
         }
     },
     computed: {

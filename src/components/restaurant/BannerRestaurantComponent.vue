@@ -1,6 +1,6 @@
 <template>
     <div class="
-        flex flex-column w-100 h-18rem
+        relative flex flex-column w-100 h-18rem
         sm:h-10rem
         md:h-14rem
         lg:h-16rem
@@ -21,8 +21,8 @@
 
         <!-- Banner's Information -->
         <div class="
-            bg-green-500 w-100 h-9rem
-            sm:h-4rem
+            surface-ground w-100 h-9rem
+            sm:h-4rem 
             md:h-7rem
             lg:h-8rem
             xl:h-10rem
@@ -30,6 +30,8 @@
             <h1>{{ restaurant?.name }}</h1>
             <h2>{{ restaurant?.gastronomy?.description }}</h2>
         </div>
+
+        <RestaurantImage />
     </div>
 </template>
 
@@ -37,6 +39,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Restaurant from '@/entities/Restaurant';
+import RestaurantImage from '@/components/restaurant/RestaurantImage.vue';
 
 export default defineComponent({
     name: "BannerRestaurantComponent",
@@ -49,7 +52,7 @@ export default defineComponent({
     },
 
     components: {
-        
+        RestaurantImage
     },
 
     computed: {

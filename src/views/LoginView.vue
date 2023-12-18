@@ -32,14 +32,26 @@
         </div>
         
 
-        <div class="flex flex-column align-items-center justify-content-start m-auto">
-            <div class="w-4 flex flex-column gap-2 mb-5 w-full">
+        <div class="
+                flex flex-column align-items-center justify-content-start m-auto">
+            
+            <div class="
+                flex flex-column
+                sm:w-100
+                md:w-100
+                lg:w-4
+                xl:w-4
+                gap-2 mb-5 w-full
+            ">
                 <label for="email">E-mail</label>
                 <InputTextVue id="email" size="large" v-model="user.email" />
                 <small id="email">Enter your username to reset your password.</small>
             </div>
 
-            <div class="w-4 flex flex-column gap-2 mb-5 w-full">
+            <div class="
+                flex flex-column
+                sm:w-100 
+                gap-2 mb-5 w-full">
                 <label for="password">Password</label>
                 <PasswordVue id="password" inputClass="w-full" size="large" :feedback="false" v-model="user.password" />
                 <small id="password">Enter your username to reset your password.</small>

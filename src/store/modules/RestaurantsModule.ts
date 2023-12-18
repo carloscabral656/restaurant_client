@@ -77,6 +77,7 @@ const AuthModule = {
          * @returns void
         */
         getChoosenRestaurant({commit}: any, id: number): void {
+            alert(id)
             try{
                 createAxiosInstance(this)
                 .get(`/restaurants/${id}`)

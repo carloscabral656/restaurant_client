@@ -2,7 +2,7 @@
     <template v-if="items?.length > 0">
         <div v-for="types in groupItemsByType" :key="types.type" class="mt-8">
             <h3>{{ types.type }}</h3>
-            <VirtualScrollerVue :items="types.items" :itemSize="300" orientation="horizontal" style="width: 100%; height: 20rem">
+            <VirtualScrollerVue :items="types.items" :itemSize="300" orientation="horizontal" style="height: 20rem; width: 100%;">
                 <template v-slot:item="{ item }">
                     <ItemComponent :item="item"/>
                 </template>

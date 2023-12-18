@@ -2,12 +2,16 @@
     <div class="flex flex-row gap-2">
 
         <!-- Original Price (Sale or not) -->
-        <div :class="[ hasSale ? 'line-through' : 'font-bold' ]"> R$ {{ originalPrice }} </div>
+        <div :class="[ hasSale ? 'line-through' : 'font-bold' ]" class="flex flex-wrap align-items-center justify-content-center"> R$ {{ originalPrice }} </div>
 
         <!-- Only Sale (New Price) -->
         <template v-if="hasSale">
-            <div class="font-bold">R$ {{ newPrice }}</div>
-            <TagVue severity="danger" value="Sale" rounded></TagVue>
+            <div class="font-bold flex flex-wrap align-items-center justify-content-center">R$ {{ newPrice }}</div>
+            <TagVue severity="danger" rounded>
+                <slot name="icon">
+                    <i class="pi pi-circle-fill mr-1 fadeout animation-duration-1000 animation-iteration-infinite" /> ON SALE
+                </slot>
+            </TagVue>
         </template>
 
     </div>
