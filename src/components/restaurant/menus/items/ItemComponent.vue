@@ -1,5 +1,5 @@
 <template>
-    <CardVue style="width: 300px; height: 400px;" class="relative border-round-xs shadow-1 ml-3 p-0 m-2">
+    <CardVue style="width: 300px; height: 350px;" class="relative border-round-lg shadow-2 ml-5 p-0 m-2">
 
         <!-- Item's image -->
         <template #header>
@@ -27,7 +27,7 @@
                 <PriceComponent :item="item"/>
             </div>
             <div class="absolute fixed bottom-0 right-0 mr-2 mb-2">
-                <ButtonVue  icon="pi pi-plus" severity="help" text raised rounded aria-label="Plus" />
+                <ButtonVue  icon="pi pi-plus" severity="danger" text raised rounded aria-label="Plus" />
             </div>
         </template>
 
