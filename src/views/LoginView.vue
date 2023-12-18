@@ -44,7 +44,7 @@
             ">
                 <label for="email">E-mail</label>
                 <InputTextVue id="email" size="large" v-model="user.email" inputClass="w-100"/>
-                <small id="email">Enter your username to reset your password.</small>
+                <small id="email">Informe o seu e-mail.</small>
             </div>
 
             <div class="
@@ -54,9 +54,9 @@
                 lg:w-4
                 xl:w-4 
                 gap-2 mb-5 w-full">
-                <label for="password">Password</label>
+                <label for="password">Senha</label>
                 <PasswordVue id="password" inputClass="w-full" size="large" :feedback="false" v-model="user.password" />
-                <small id="password">Enter your username to reset your password.</small>
+                <small id="password">Informe a sua senha.</small>
             </div>
 
             <div class="
@@ -116,7 +116,7 @@ export default defineComponent({
                 !this.user.email ||
                 !this.user.password
             ){
-                this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'E-mail e Password são necessários.', life: 3000 });
+                this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'E-mail e Senha são necessários.', life: 3000 });
                 return;
             }
 
