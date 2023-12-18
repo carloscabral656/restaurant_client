@@ -24,6 +24,10 @@ import Toast from 'primevue/toast';
 import ToastService from 'primevue/toastservice';
 import Password from 'primevue/password';
 import Image from "primevue/image";
+import VirtualScroller from 'primevue/virtualscroller';
+import Card from 'primevue/card';
+import Tag from 'primevue/tag';
+
 // ------------------------------------------------------------------
 
 
@@ -54,4 +58,7 @@ createApp(App)
 .component('ToastVue', Toast)
 .component('PasswordVue', Password)
 .component('ImageVue',Image)
+.component('VirtualScrollerVue', VirtualScroller)
+.component('CardVue', Card)
+.component('TagVue', Tag)
 .mount('#app')

@@ -1,11 +1,57 @@
 <template>
-    <h1>asdasd</h1>
+    <CardVue style="width: 300px;" :pt="{
+        header: (options: any) => ({
+            style: {
+                'height': '40%',
+                computedItemImage
+            }
+        }),
+
+        title: (options: any) => ({
+            style: {
+                'height': '40%'
+            }
+        }),
+
+
+    }">
+
+        <!-- Item's foto -->
+        <template #header>
+            <div class="
+                surface-900 w-100 h-9rem 
+                sm:h-6rem bg-cover
+                md:h-7rem bg-cover
+                lg:h-8rem bg-cover
+                xl:h-10rem bg-cover" 
+                :style="computedItemImage"></div>
+        </template>
+
+        <!-- Item's name -->
+        <template #title>
+            {{ item?.name }}
+        </template>
+
+        <!-- Item's description -->
+        <template #content>
+            <p class="m-0">
+                {{ item?.description }}
+            </p>
+        </template>
+
+        <!-- Item's price, sale, new Value .... -->
+        <template #footer>
+            <PriceComponent :item="item"/>
+        </template>
+
+    </CardVue>
 </template>
 
 
 <script lang="ts">
 import Item from '@/entities/Item';
 import { defineComponent } from 'vue';
+import PriceComponent from './PriceComponent.vue';
 
 export default defineComponent({
     name: "ItemComponent",
@@ -14,6 +60,16 @@ export default defineComponent({
         item: {
             type: Item,
             required: true
+        }
+    },
+
+    components: {
+        PriceComponent
+    },
+
+    computed: {
+        computedItemImage():string {
+            return `background-image: url('${this.item?.img}')`;
         }
     }
 

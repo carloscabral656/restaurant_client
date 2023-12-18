@@ -2,6 +2,7 @@
     <template v-if="menus.length > 0">
         <div v-for="menu in menus" :key="menu.id">
             <h3>Menus's name {{ menu.name }}</h3>
+            <!-- Dividir por Tipo de Item -->
             <ItemsComponent :items="menu.items"/>
         </div>
     </template>

@@ -1,6 +1,7 @@
 import Sale from "./Sale";
 import { Expose, Type } from "class-transformer";
 import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import TypeItem from "./TypeItem";
 
 export default class Item {
 
@@ -33,13 +34,19 @@ export default class Item {
     @Type(() => Sale)
     private _sale: Sale;
 
-    constructor(id: number, description: string, name: string, img_item: string, unit_price: number, sale: Sale) {
+    @Expose({name: 'type_item'})
+    @Type(() => TypeItem)
+    private _type_item: TypeItem;
+
+
+    constructor(id: number, description: string, name: string, img_item: string, unit_price: number, sale: Sale, typeItem: TypeItem) {
         this._id = id;
         this._name = name;
         this._description = description;
         this._img_item = img_item;
         this._unit_price = unit_price;
         this._sale = sale;
+        this._type_item = typeItem;
     }
 
     get id(): number {
@@ -48,6 +55,26 @@ export default class Item {
 
     get name(): string {
         return this._name;
+    }
+
+    get img(): string {
+        return this._img_item;
+    }
+
+    get description(): string {
+        return this._description;
+    }
+
+    get unitPrice(): number {
+        return this._unit_price;
+    }
+
+    get sale(): Sale {
+        return this._sale;
+    }
+
+    get typeItem(): TypeItem {
+        return this._type_item;
     }
 
 }

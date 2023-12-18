@@ -40,4 +40,8 @@ export default class Sale {
         this._end_at = end_at;
     }
 
+    get discount(): number {
+        return this._discount;
+    }
+
 }
