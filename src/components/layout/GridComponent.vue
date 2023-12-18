@@ -1,4 +1,5 @@
 <template>
+
     <template v-if="lengthData > 0">
         <div class="grid m-0" v-for="line in lines" :key="line">
             <div :class="columns" v-for="item in totalItemsInLineComputed" :key="item">
@@ -7,9 +8,6 @@
         </div>
     </template>
 
-    <template v-else>
-        <SpinnerVue />
-    </template>
 </template>
 
 

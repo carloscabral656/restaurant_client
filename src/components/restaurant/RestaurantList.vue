@@ -1,6 +1,10 @@
 <template>
     <main class="w-100">
-        
+
+        <template v-if="restaurants.length === 0">
+            <SpinnerVue class="flex flex-row align-self-center justify-self-center"/>
+        </template>
+
         <GridComponent :data="restaurants" :component="RestaurantComponent" />
         
     </main>
@@ -35,7 +39,7 @@ export default defineComponent({
     mounted() {
         store.dispatch('getRestaurants')
     },
-    
+
     state() {
         const store = useStore();
         return {

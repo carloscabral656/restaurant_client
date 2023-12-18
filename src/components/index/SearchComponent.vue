@@ -10,10 +10,10 @@
             type="text" 
             class="w-full border-round surface-100 p-2" 
             size="medium"
-            placeholder="Search for a restaurant"
+            placeholder="Busque pelo nome do seu restaurante"
             v-model="name"
         />
-        <ButtonVue icon="pi pi-search" severity="danger" aria-label="Search" @click="searchRestaurant">
+        <ButtonVue icon="pi pi-search" severity="danger" aria-label="Search" @click="searchRestaurant" @keydown.enter="searchRestaurant">
             <i class="pi pi-search"></i>
         </ButtonVue>
     </div>

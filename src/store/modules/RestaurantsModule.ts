@@ -33,7 +33,6 @@ const AuthModule = {
          * 
         */
         saveRestaurants(state: any, restaurants: Array<any>): void {
-            state.restaurants = new Array<Restaurant>();
             restaurants.map((restaurant: any) =>  {
                 try{
                     const restaurantConverted = plainToInstance(Restaurant, restaurant);
@@ -50,6 +49,10 @@ const AuthModule = {
         saveChoosenRestaurant(state: any, restaurant: any): void {
             const choosenRestaurantConverted = plainToInstance(Restaurant, restaurant);
             state.choosenRestaurant = choosenRestaurantConverted;
+        },
+
+        refreshRestaurants(state: any) {
+            state.restaurants = [];
         }
 
     },
@@ -62,6 +65,7 @@ const AuthModule = {
          * @returns void
         */
         getRestaurants({commit}: any): void {
+            commit('refreshRestaurants');
             try{
                 createAxiosInstance(this)
                 .get('/restaurants')
@@ -96,6 +100,7 @@ const AuthModule = {
          * @returns void
         */
         getRestaurantsByFilter({commit}: any, name: any): void {
+            commit('refreshRestaurants');
             const params = new URLSearchParams();
             params.append('name', name);
             try{
@@ -106,7 +111,6 @@ const AuthModule = {
                     }
                 })
                 .then(response => {
-                    console.log(response.data);
                     const restaurant = response.data;
                     commit('saveRestaurants', restaurant);
                 });

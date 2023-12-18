@@ -3,6 +3,13 @@
         <BannerRestaurantComponent :restaurant="choosenRestaurant"/>
         <MenusComponent :menus="choosenRestaurant?.menus" />
     </template>
+
+    <template v-else>
+        <div class="flex flex-column justify-content-center h-full">
+            <SpinnerVue />
+            <p>Aguarde...</p>
+        </div>
+    </template>
 </template>
 
 
