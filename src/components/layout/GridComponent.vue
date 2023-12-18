@@ -1,6 +1,6 @@
 <template>
     <div class="grid m-0" v-for="line in lines" :key="line">
-        <div :class="columns"  v-for="item in totalItemsInLineComputed" :key="item">
+        <div :class="columns" v-for="item in totalItemsInLineComputed" :key="item">
             <component v-if="currentIndex < lengthData" :is="component" :data="computedData[currentIndex++]"></component>
         </div>
     </div>
@@ -81,6 +81,7 @@ export default defineComponent({
     mounted() {
         this.setViewportDimensions();
         window.addEventListener('resize', this.setViewportDimensions);
+        this.currentIndex = 0;
     },
 
     beforeUnmount() {

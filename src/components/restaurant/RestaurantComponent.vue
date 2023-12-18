@@ -1,21 +1,25 @@
 <template>
-    <div class="relative flex flex-row w-100 
-        sm:h-10rem sm:border-round-sm
+    <div class="
+        relative flex flex-row w-100 
+        h-14rem md:border-round-md
         md:h-12rem md:border-round-md
-        lg:h-14rem lg:border-round-lg
-        xl:h-14rem xl:border-round-xl 
-        h-8rem overflow-hidden border-round border-solid border-50 shadow-3 cursor-pointer
+        lg:h-16rem lg:border-round-lg
+        xl:h-16rem xl:border-round-xl 
+        overflow-hidden border-round border-solid border-50 shadow-3 cursor-pointer
     " @click="chooseRestaurant">
         <!-- Containers -->
-        <div class="flex flex-column flex-1 w-100 relative h-100">
+        <div class="
+            flex flex-column flex-1 w-100 relative h-100">
 
              <!-- Gastronomy's Image -->
             <GastronomyImage :gastronomyImage="data?.gastronomy.image"/>
 
             <div class="
-                w-100 relative h-5rem text-center
-                grid
-                sm:h-4rem md:h-4rem lg:h-5rem xl:h-7rem
+                w-100 relative h-5rem text-center grid
+                h-4rem 
+                md:h-4rem 
+                lg:h-5rem 
+                xl:h-7rem
             ">
                 <div class="col-3"></div>
                 <div class="col-9">
