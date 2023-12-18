@@ -14,4 +14,8 @@ export default class User {
     get email(): string {
         return this._email
     }
+
+    get addressAsString(): string {
+        return ``;
+    }
 }

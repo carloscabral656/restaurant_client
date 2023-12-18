@@ -57,7 +57,7 @@ export default defineComponent({
 
     computed: {
         bannerGastronomyImage() {
-            return `background-image: url(${this.restaurant.gastronomy.image});`
+            return `background-image: url(${this.restaurant!.gastronomy!.image ?? ''});`
         }
     }
 });

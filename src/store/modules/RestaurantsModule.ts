@@ -10,6 +10,7 @@ const AuthModule = {
        //
        restaurants: [] as Array<Restaurant>,
 
+       //
        choosenRestaurant: {} as Restaurant
 
     },
@@ -32,6 +33,7 @@ const AuthModule = {
          * 
         */
         saveRestaurants(state: any, restaurants: Array<any>): void {
+            state.restaurants = new Array<Restaurant>();
             restaurants.map((restaurant: any) =>  {
                 try{
                     const restaurantConverted = plainToInstance(Restaurant, restaurant);
@@ -50,6 +52,7 @@ const AuthModule = {
             const choosenRestaurantConverted = plainToInstance(Restaurant, restaurant);
             state.choosenRestaurant = choosenRestaurantConverted;
         }
+
     },
 
     // Asynchrony method (API calls)
@@ -77,13 +80,36 @@ const AuthModule = {
          * @returns void
         */
         getChoosenRestaurant({commit}: any, id: number): void {
-            alert(id)
             try{
                 createAxiosInstance(this)
                 .get(`/restaurants/${id}`)
                 .then(response => {
                     const restaurant = response.data.data;
                     commit('saveChoosenRestaurant', restaurant);
+                });
+            }catch(error){
+                console.log("Error", error)
+            }
+        },
+
+        /**
+         * Method for retrieve in the restaurant api.
+         * @returns void
+        */
+        getRestaurantsByFilter({commit}: any, name: any): void {
+            const params = new URLSearchParams();
+            params.append('name', name);
+            try{
+                createAxiosInstance(this)
+                .get(`/restaurants`, {
+                    params: {
+                        name: name
+                    }
+                })
+                .then(response => {
+                    console.log(response.data);
+                    const restaurant = response.data;
+                    commit('saveRestaurants', restaurant);
                 });
             }catch(error){
                 console.log("Error", error)

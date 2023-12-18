@@ -27,7 +27,8 @@ import Image from "primevue/image";
 import VirtualScroller from 'primevue/virtualscroller';
 import Card from 'primevue/card';
 import Tag from 'primevue/tag';
-
+import ProgressSpinner from 'primevue/progressspinner';
+import Skeleton from 'primevue/skeleton';
 // ------------------------------------------------------------------
 
 
@@ -61,4 +62,6 @@ createApp(App)
 .component('VirtualScrollerVue', VirtualScroller)
 .component('CardVue', Card)
 .component('TagVue', Tag)
+.component('SpinnerVue', ProgressSpinner)
+.component('SkeletonVue', Skeleton)
 .mount('#app')

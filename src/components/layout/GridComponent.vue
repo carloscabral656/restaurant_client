@@ -81,15 +81,20 @@ export default defineComponent({
     mounted() {
         this.setViewportDimensions();
         window.addEventListener('resize', this.setViewportDimensions);
-        this.currentIndex = 0;
     },
 
     beforeUnmount() {
+        this.currentIndex = 0;
         window.removeEventListener('resize', this.setViewportDimensions);
+    },
+
+    updated() {
+        this.currentIndex = 0;
     },
 
     methods: {
         setViewportDimensions() {
+            this.currentIndex = 0;
             this.viewport.width = window.innerWidth;
             this.viewport.height = window.innerHeight;
         },

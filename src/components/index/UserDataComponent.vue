@@ -7,8 +7,8 @@
         align-items-center justify-content-center 
         p-4 border-round mr-3
     ">
-        Hello, {{ user.name }}! Are you in the address?
-        <div class="font-medium font-bold">Rua dos bobos numero 0</div>
+        Hello, {{ user.name }}! Are you at?
+        <div class="font-medium font-bold">{{ user.addressAsString }}</div>
     </div>
 </template>
 

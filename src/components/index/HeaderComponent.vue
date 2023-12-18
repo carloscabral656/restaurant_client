@@ -1,17 +1,23 @@
 <template>
     <header class="
         flex flex-row gap-2 h-3 border-bottom-1 border-bottom-solid 
-        p-3 border-500
+        p-4 border-500
     ">
         <div class="
-            hidden 
+            block 
             md:block 
             lg:block 
             xl:block 
             align-items-center justify-content-center 
-            p-4 border-round mr-3
-        ">Imagen</div>
+            p-4 border-round m-1
+        ">
+            <img src="/boca.png" alt="" class="w-3rem h-3rem md:w-4rem md:h-4rem lg:w-6rem lg:h-6rem xl:w-6rem xl:h-6rem">
+        </div>
+
+        <!-- -->
         <SearchComponent/>
+
+        <!-- -->
         <UserDataComponent/>
     </header> 
 </template>
