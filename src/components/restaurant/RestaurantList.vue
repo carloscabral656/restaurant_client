@@ -17,27 +17,25 @@ import { mapGetters } from 'vuex'
 
 export default defineComponent({
     name: "RestaurantList",
+
     data() {
         return {
             RestaurantComponent
         }
     },
+
     computed: {
         ...mapGetters(['restaurants'])
     },
+
     components: {
         GridComponent
-    },
-
-    watch: {
-        restaurants(){
-            alert("mUdou")
-        }
     },
 
     mounted() {
         store.dispatch('getRestaurants')
     },
+    
     state() {
         const store = useStore();
         return {

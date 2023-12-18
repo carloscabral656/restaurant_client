@@ -1,9 +1,15 @@
 <template>
-    <div class="grid m-0" v-for="line in lines" :key="line">
-        <div :class="columns" v-for="item in totalItemsInLineComputed" :key="item">
-            <component v-if="currentIndex < lengthData" :is="component" :data="computedData[currentIndex++]"></component>
+    <template v-if="lengthData > 0">
+        <div class="grid m-0" v-for="line in lines" :key="line">
+            <div :class="columns" v-for="item in totalItemsInLineComputed" :key="item">
+                <component v-if="currentIndex < lengthData" :is="component" :data="computedData[currentIndex++]"></component>
+            </div>
         </div>
-    </div>
+    </template>
+
+    <template v-else>
+        <SpinnerVue />
+    </template>
 </template>
 
 
