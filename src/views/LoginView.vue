@@ -41,6 +41,7 @@
                 lg:w-4
                 xl:w-4
                 gap-2 mb-5 w-full
+                outline-none
             ">
                 <label for="email">E-mail</label>
                 <InputTextVue id="email" size="large" v-model="user.email" inputClass="w-100"/>
@@ -53,7 +54,9 @@
                 md:w-50
                 lg:w-4
                 xl:w-4 
-                gap-2 mb-5 w-full">
+                gap-2 mb-5 w-full
+                outline-none
+            ">
                 <label for="password">Senha</label>
                 <PasswordVue id="password" inputClass="w-full" size="large" :feedback="false" v-model="user.password" />
                 <small id="password">Informe a sua senha.</small>
@@ -102,12 +105,18 @@ export default defineComponent({
     },
     computed: {
         ...mapGetters([
-            'isAuthenticated'
+            'isAuthenticated',
+            'hasMessage',
+            'getMessage'
         ])
     },
     watch: {
         isAuthenticated(){
             this.$router.push('/index')
+        },
+
+        hasMessage() {
+            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: `${this.getMessage}`, life: 3000 });
         }
     },
     methods: {

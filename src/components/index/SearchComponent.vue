@@ -1,5 +1,11 @@
 <template>
-    <div class="flex flex-row align-items-center justify-content-center gap-1">
+    <div class="
+        flex flex-row align-items-center justify-content-center gap-1
+        flex-grow-1 
+        md:flex-grow-1
+        lg:flex-grow-1
+        xl:flex-grow-1
+    ">
         <InputTextVue 
             type="text" 
             class="w-full border-round surface-100 p-2" 

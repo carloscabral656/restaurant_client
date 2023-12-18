@@ -9,7 +9,10 @@ const AuthModule = {
         token: null,
 
         // Athentication
-        authenticated: false
+        authenticated: false,
+
+        // Server's response
+        responseMessage: null
 
     },
     
@@ -21,7 +24,19 @@ const AuthModule = {
 
         getToken: (state: any) : string => {
             return state.token
-        }
+        },
+
+        getResponseError: (state: any): string => {
+            return state.responseMessage
+        },
+
+        hasMessage: (state: any): boolean => {
+            return state.responseMessage === null;
+        },
+
+        getMessage: (state: any): string => {
+            return state.responseMessage;
+        },
     },
     
     // Method able to update the state
@@ -39,6 +54,10 @@ const AuthModule = {
             }
             state.token = token
             state.authenticated = true
+        },
+
+        storeResponseError(state: any, response: string) {
+            state.responseMessage = response;
         }
     },
 
@@ -60,6 +79,9 @@ const AuthModule = {
                 )
                 .then((response) => {
                     commit('saveToken', response.data.data.token)
+                })
+                .catch((response) => {
+                    commit('storeResponseError', response.response.data.data)
                 });
             }catch(error){
                 console.log("Error", error)

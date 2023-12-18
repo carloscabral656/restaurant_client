@@ -1,5 +1,12 @@
 <template>
-    <div class="flex flex-column align-items-end">
+    <div class="
+        hidden 
+        md:block 
+        lg:block 
+        xl:block 
+        align-items-center justify-content-center 
+        p-4 border-round mr-3
+    ">
         Hello, {{ user.name }}! Are you in the address?
         <div class="font-medium font-bold">Rua dos bobos numero 0</div>
     </div>
