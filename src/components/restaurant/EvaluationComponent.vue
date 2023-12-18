@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <i class="
-            pi pi-star-fill text-orange-400 font-bold
-            "></i> <span class="text-orange-300 font-bold">{{ evaluation ?? ' - ' }}</span>
+    <div class="flex flex row align-items-center">
+        <i class="pi pi-star-fill text-orange-400 font-bold align-self-center  mr-2"></i> <span class="text-orange-300 font-bold">{{ evaluation ?? ' - ' }}</span>
     </div>
 </template>
 
