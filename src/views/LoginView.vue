@@ -121,10 +121,7 @@ export default defineComponent({
     },
     methods: {
         validate(){
-            if(
-                !this.user.email ||
-                !this.user.password
-            ){
+            if(!this.user.email || !this.user.password) {
                 this.$toast.add({ severity: 'error', summary: 'Error Message', detail: 'E-mail e Senha são necessários.', life: 3000 });
                 return;
             }
@@ -135,7 +132,9 @@ export default defineComponent({
         }
     },
     created() {
-        if(this.isAuthenticated) this.$router.push('/index')
+        if(this.isAuthenticated) {
+            this.$router.push('/index')
+        }
     },
     setup(){
         const state = useStore();
@@ -145,6 +144,3 @@ export default defineComponent({
     }
 });
 </script>
-
-<style>
-</style>

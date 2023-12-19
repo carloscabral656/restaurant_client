@@ -2,7 +2,7 @@
     <div class="relative flex flex-column w-100 h-40rem md:h-40rem lg:h-40rem xl:h-40rem">
 
         <!-- Banner's Image -->
-        <div class="surface-900 w-100 bg-cover h-9rem sm:h-6rem md:h-7rem bg-cover lg:h-8rem bg-contain xl:h-10rem"
+        <div class="surface-900 w-100 bg-contain h-9rem sm:h-6rem md:h-7rem bg-cover lg:h-8rem bg-contain xl:h-10rem"
             :style="bannerGastronomyImage"
         >
         </div>

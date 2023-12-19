@@ -49,15 +49,22 @@ const AuthModule = {
 
         storeTokenFromCache(state: any, token: string) {
             if(!token) {
-                state.authenticated = false
+                state.authenticated = false;
+                state.token = null;
                 return;
             }
-            state.token = token
-            state.authenticated = true
+            state.token = token;
+            state.authenticated = true;
         },
 
         storeResponseError(state: any, response: string) {
             state.responseMessage = response;
+        },
+
+        resetTokenInLocalStorage(state: any){
+            state.authenticated = false;
+            state.token = null;
+            localStorage.removeItem('token');
         }
     },
 
