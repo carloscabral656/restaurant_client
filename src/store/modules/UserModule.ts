@@ -1,5 +1,6 @@
 import User from "@/entities/User";
 import createAxiosInstance from "@/requests/ConfigsDefault";
+import { AxiosError, AxiosResponse } from "axios";
 
 const UserModule = {
 
@@ -31,9 +32,11 @@ const UserModule = {
         getUser({commit}: any) {
             createAxiosInstance(this)
             .get('/user-authenticated')
-            .then(response => {
-                commit('saveUser', response.data.data)
-            })
+            .then((response: AxiosResponse) => {
+                commit('saveUser', response.data)
+            }).catch((error: AxiosError) => {
+                alert(error.response?.status)
+            });
         }
     }
 }

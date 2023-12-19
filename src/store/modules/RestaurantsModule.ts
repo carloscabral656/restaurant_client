@@ -1,5 +1,6 @@
 import Restaurant from "@/entities/Restaurant";
 import createAxiosInstance from "@/requests/ConfigsDefault";
+import { AxiosError } from "axios";
 import { plainToInstance } from "class-transformer";
 
 const AuthModule = {
@@ -72,6 +73,9 @@ const AuthModule = {
                 .then((response) => {
                     const restaurants = response.data
                     commit('saveRestaurants', restaurants)
+                })
+                .catch((error: AxiosError) => {
+                    alert(error.response?.status)
                 });
             }catch(error){
                 console.log("Error", error)
@@ -89,6 +93,9 @@ const AuthModule = {
                 .then(response => {
                     const restaurant = response.data.data;
                     commit('saveChoosenRestaurant', restaurant);
+                })
+                .catch((error: AxiosError) => {
+                    alert(error.response?.status)
                 });
             }catch(error){
                 console.log("Error", error)

@@ -18,21 +18,6 @@ const createAxiosInstance = (store: any) => {
   });
 
   // Interceptors
-
-  axiosInstance.interceptors.response.use(
-    
-    function(request: AxiosResponse): AxiosResponse {
-      return request;
-    }, 
-
-    function(error: AxiosError) {
-      if(error.response?.status === 401){
-        router.push("/login");
-      }
-    }
-
-  );
-
   axiosInstance.interceptors.response.use(
     function (response: AxiosResponse) {
       return response;
@@ -40,7 +25,6 @@ const createAxiosInstance = (store: any) => {
     
     function (error: AxiosError) {
       if(error.response?.status === 401){
-        store.commit('resetTokenInLocalStorage');
         router.push("/login");
       }
       return Promise.reject(error);

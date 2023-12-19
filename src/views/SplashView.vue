@@ -6,7 +6,7 @@
         </div>
         <div class="absolute bottom-0 right-0 mb-4 mr-4">
             <router-link to="/login">
-                <ButtonVue class="w-6rem h-6rem" icon="pi pi-arrow-right text-3xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
+                <ButtonVue class="w-5rem h-5rem" icon="pi pi-arrow-right text-3xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
             </router-link>
         </div>
     </div>

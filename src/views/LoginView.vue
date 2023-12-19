@@ -1,10 +1,5 @@
 <template>
-    <div class="
-        h-full min-h-screen
-        p-4
-        surface-900
-        text-white
-    ">
+    <div class="h-full min-h-screen p-4 surface-900 text-white">
 
         <!-- First row (Back and Register User)-->
         <div class="flex flex-row flex-wrap justify-content-between">
@@ -95,6 +90,7 @@ import { mapGetters } from 'vuex'
 
 export default defineComponent({
     name: "LoginView",
+
     data() {
         return {
             user: {
@@ -103,6 +99,7 @@ export default defineComponent({
             }
         }
     },
+
     computed: {
         ...mapGetters([
             'isAuthenticated',
@@ -110,8 +107,10 @@ export default defineComponent({
             'getMessage'
         ])
     },
+
     watch: {
         isAuthenticated(){
+            alert("ASDASD")
             this.$router.push('/index')
         },
 
@@ -119,6 +118,7 @@ export default defineComponent({
             this.$toast.add({ severity: 'error', summary: 'Error Message', detail: `${this.getMessage}`, life: 3000 });
         }
     },
+
     methods: {
         validate(){
             if(!this.user.email || !this.user.password) {
@@ -131,11 +131,7 @@ export default defineComponent({
             this.state.dispatch('authenticate', credentials);
         }
     },
-    created() {
-        if(this.isAuthenticated) {
-            this.$router.push('/index')
-        }
-    },
+
     setup(){
         const state = useStore();
         return {

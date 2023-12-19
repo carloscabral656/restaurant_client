@@ -88,4 +88,8 @@ export default class Restaurant {
         return this._image;
     }
 
+    get address(): Address | null {
+        return this._address;
+    }
+
 }

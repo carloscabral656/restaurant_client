@@ -1,4 +1,5 @@
 import createAxiosInstance from "@/requests/ConfigsDefault";
+import { AxiosError, AxiosResponse } from "axios";
 
 const AuthModule = {
 
@@ -41,30 +42,24 @@ const AuthModule = {
     
     // Method able to update the state
     mutations: {
-        saveToken(state: any, token: string) {
-            state.token = token;
-            state.authenticated = true
-            localStorage.setItem('token', token)
-        },
 
-        storeTokenFromCache(state: any, token: string) {
-            if(!token) {
-                state.authenticated = false;
-                state.token = null;
-                return;
-            }
+        //
+        saveToken(state: any, token: string) {
+            localStorage.setItem('token', token)
             state.token = token;
-            state.authenticated = true;
         },
 
         storeResponseError(state: any, response: string) {
             state.responseMessage = response;
         },
 
-        resetTokenInLocalStorage(state: any){
-            state.authenticated = false;
+        resetToken(state: any){
+            localStorage.removeItem('token')
             state.token = null;
-            localStorage.removeItem('token');
+        },
+
+        userAutenticated(state: any){
+            state.authenticated = true;
         }
     },
 
@@ -84,25 +79,43 @@ const AuthModule = {
                     '/auth/login',
                     credentials
                 )
-                .then((response) => {
+                .then((response: AxiosResponse) => {
                     commit('saveToken', response.data.data.token)
+                    commit('userAutenticated')
                 })
-                .catch((response) => {
-                    commit('storeResponseError', response.response.data.data)
+                .catch((error: AxiosError) => {
+                    alert(error.code)
                 });
             }catch(error){
                 console.log("Error", error)
             }
         },
-        
+
         /**
          * 
          * 
         */
-        retrieveTokenFromCache({commit}: any) {
-            const token = localStorage.getItem('token');
-            commit('storeTokenFromCache', token);
-        }
+        hasValidToken({commit}: any, token: string) {
+            try{
+                createAxiosInstance(this)
+                .get('/token-valid')
+                .then((response) => {
+                    commit('saveToken', token)
+                    commit('userAutenticated')
+                });
+            }catch(error){
+                alert(error)
+            }
+        },
+
+
+        /**
+         * 
+         * 
+        */
+       resetToken({commit}: any){
+            commit('resetToken');
+       }
 
     }
 }

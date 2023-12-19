@@ -40,12 +40,9 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 // ------------------------------------------------------------------
 
-
-// ------------------------------------------------------------------
-//                       Actions needed in reload 
-// ------------------------------------------------------------------
-store.dispatch('retrieveTokenFromCache')
-// ------------------------------------------------------------------
+//
+const token = localStorage.getItem('token');
+store.commit('saveToken', token);
 
 
 createApp(App)
