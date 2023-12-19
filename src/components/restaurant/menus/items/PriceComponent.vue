@@ -9,7 +9,7 @@
             <div class="font-bold flex flex-wrap align-items-center justify-content-center">R$ {{ newPrice }}</div>
             <TagVue severity="danger" rounded>
                 <slot name="icon">
-                    <i class="pi pi-circle-fill mr-1 fadeout animation-duration-1000 animation-iteration-infinite" /> ON SALE
+                    <i class="pi pi-circle-fill mr-1 fadeout animation-duration-1000 animation-iteration-infinite" />{{ item.sale.discount }}% OFF
                 </slot>
             </TagVue>
         </template>

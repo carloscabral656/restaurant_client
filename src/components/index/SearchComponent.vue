@@ -14,12 +14,12 @@
         </div>
 
 
-        <div class="flex flex-row w-50">
+        <div class="flex flex-row" style="width: 70%;">
             <InputTextVue 
                 type="text" 
-                class="w-full border-round surface-100 p-2" 
+                class="flex-grow-1 border-round surface-100 p-2" 
                 size="medium"
-                placeholder="Busque pelo nome do seu restaurante"
+                placeholder="Busque por um dos itens acima ..."
                 v-model="filter.searchValue"
             />
             <ButtonVue icon="pi pi-search" severity="danger" aria-label="Search" @click="searchFilter" @keydown.enter="searchFilter">

@@ -2,6 +2,8 @@
     <!-- Restaurant Image -->
     <div class="
             absolute align-self-center justify-self-center border-circle bg-blue-400 ml-3 
+            bg-contain
+            mt-5
             w-5rem h-5rem 
             sm:w-5rem sm:h-5rem 
             md:w-5rem md:h-5rem  

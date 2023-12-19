@@ -1,8 +1,8 @@
 <template> 
     <template v-if="items?.length > 0">
-        <div v-for="types in groupItemsByType" :key="types.type" style="height: 400px; width: 100%;" class="mt-5">
+        <div v-for="types in groupItemsByType" :key="types.type" style="height: 400px; width: 100%;" class="mt-7">
             <h3>{{ types.type }}</h3>
-            <VirtualScrollerVue :items="types.items" :itemSize="300" orientation="horizontal" style="height: 500px; width: 100%;">
+            <VirtualScrollerVue :items="types.items" :itemSize="300" orientation="horizontal" style="height: 400px; width: 100%;">
                 <template v-slot:item="{ item }">
                     <ItemComponent :item="item"/>
                 </template>

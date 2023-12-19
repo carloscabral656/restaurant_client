@@ -3,7 +3,7 @@
 
         <!-- Item's image -->
         <template #header>
-            <div class="surface-900 w-100 h-9rem bg-cover md:h-7rem bg-cover lg:h-8rem bg-cover xl:h-10rem bg-cover" 
+            <div class="surface-900 w-100 h-9rem bg-cover md:h-7rem bg-auto no-repeat lg:h-8rem bg-cover xl:h-10rem bg-cover" 
                 :style="computedItemImage"
             >
             </div>
@@ -17,7 +17,7 @@
         <!-- Item's description -->
         <template #content>
             <p class="m-0">
-                {{ item?.description }}
+                {{ item?.description.length > 50 ? `${item?.description.substring(0, 50)} ...` :  item?.description}}
             </p>
         </template>
 

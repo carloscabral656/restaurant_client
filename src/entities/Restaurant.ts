@@ -92,4 +92,8 @@ export default class Restaurant {
         return this._address;
     }
 
+    get description(): string {
+        return this._description;
+    }
+
 }

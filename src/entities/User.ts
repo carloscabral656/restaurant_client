@@ -38,7 +38,4 @@ export default class User {
         return this._email
     }
 
-    get addressAsString(): string {
-        return ``;
-    }
 }
