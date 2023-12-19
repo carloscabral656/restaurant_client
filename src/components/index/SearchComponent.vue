@@ -2,10 +2,9 @@
     <div class="flex flex-column flex-grow-1 align-items-center justify-content-center gap-1 md:flex-grow-1 lg:flex-grow-1 xl:flex-grow-1">
 
         <!--  -->
-        <div class="flex flex-wrap gap-3">
-            <p>Pesquisar por: </p>
+        <div class="flex flex-grow-1 flex-wrap gap-3">
             <div class="flex align-items-center">
-                <RadioButtonVue v-model="filter.typeFilter" inputId="restaurantFilter" name="restaurant" value="restaurant" />
+                <RadioButtonVue v-model="filter.typeFilter" inputId="restaurantFilter" name="restaurant" value="restaurant" checked/>
                 <label for="ingredient1" class="ml-2">Restaurante</label>
             </div>
             <div class="flex align-items-center">
@@ -15,7 +14,7 @@
         </div>
 
 
-        <div class="flex flex-row flex-grow-1">
+        <div class="flex flex-row w-50">
             <InputTextVue 
                 type="text" 
                 class="w-full border-round surface-100 p-2" 
@@ -41,7 +40,7 @@ export default defineComponent({
     data(){
         return {
             filter: {
-                typeFilter: '',
+                typeFilter: 'restaurant',
                 searchValue: ''
             }
         }

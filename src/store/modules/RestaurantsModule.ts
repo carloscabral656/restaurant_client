@@ -38,6 +38,7 @@ const AuthModule = {
             restaurants.map((restaurant: any) =>  {
                 try{
                     const restaurantConverted = plainToInstance(Restaurant, restaurant);
+                    console.log(restaurantConverted)
                     state.restaurants.push(restaurantConverted);
                 }catch(error){
                     console.log(error)
@@ -72,11 +73,9 @@ const AuthModule = {
                 createAxiosInstance(this)
                 .get('/restaurants')
                 .then((response) => {
+                    console.log(response)
                     const restaurants = response.data
                     commit('saveRestaurants', restaurants)
-                })
-                .catch((error: AxiosError) => {
-                    alert(error.response?.status)
                 });
             }catch(error){
                 console.log("Error", error)
