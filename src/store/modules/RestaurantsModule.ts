@@ -2,6 +2,7 @@ import Restaurant from "@/entities/Restaurant";
 import createAxiosInstance from "@/requests/ConfigsDefault";
 import { AxiosError } from "axios";
 import { plainToInstance } from "class-transformer";
+import FilterInterface from "@/interfaces/FilterInterface";
 
 const AuthModule = {
 
@@ -106,16 +107,24 @@ const AuthModule = {
          * Method for retrieve in the restaurant api.
          * @returns void
         */
-        getRestaurantsByFilter({commit}: any, name: any): void {
+        getRestaurantsByFilter({commit}: any, filter: FilterInterface): void {
             commit('refreshRestaurants');
+
+            // Creating params
             const params = new URLSearchParams();
-            params.append('name', name);
+
+            if(filter.typeFilter === 'item'){
+                params.append('item', filter.searchValue);
+            }
+
+            if(filter.typeFilter === 'restaurant'){
+                params.append('restaurant', filter.searchValue);
+            }
+            
             try{
                 createAxiosInstance(this)
                 .get(`/restaurants`, {
-                    params: {
-                        name: name
-                    }
+                    params
                 })
                 .then(response => {
                     const restaurant = response.data;

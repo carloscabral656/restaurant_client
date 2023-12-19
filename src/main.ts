@@ -29,6 +29,9 @@ import Card from 'primevue/card';
 import Tag from 'primevue/tag';
 import ProgressSpinner from 'primevue/progressspinner';
 import Skeleton from 'primevue/skeleton';
+import RadioButton from 'primevue/radiobutton';
+
+
 // ------------------------------------------------------------------
 
 
@@ -61,4 +64,5 @@ createApp(App)
 .component('TagVue', Tag)
 .component('SpinnerVue', ProgressSpinner)
 .component('SkeletonVue', Skeleton)
+.component('RadioButtonVue', RadioButton)
 .mount('#app')

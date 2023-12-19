@@ -12,7 +12,7 @@
             flex flex-column flex-1 w-100 relative h-100">
 
              <!-- Gastronomy's Image -->
-            <GastronomyImage :gastronomyImage="data?.gastronomy.image"/>
+            <GastronomyImage :gastronomyImage="data?.gastronomy?.image"/>
 
             <div class="
                 w-100 relative h-5rem text-center grid

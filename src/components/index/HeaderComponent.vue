@@ -1,17 +1,16 @@
 <template>
     <header class="
-        flex flex-row gap-2 h-3 border-bottom-1 border-bottom-solid 
+        flex flex-column m-auto gap-2 h-3 border-bottom-1 border-bottom-solid 
         p-4 border-500
     ">
         <div class="
-            block 
+            lex flex-row align-items-center justify-content-center 
             md:block 
             lg:block 
             xl:block 
-            align-items-center justify-content-center 
             p-4 border-round m-1
         ">
-            <img src="/boca.png" alt="" class="w-3rem h-3rem md:w-4rem md:h-4rem lg:w-6rem lg:h-6rem xl:w-6rem xl:h-6rem">
+            <img src="/boca.png" alt="" class="m-auto w-3rem h-3rem md:w-4rem md:h-4rem lg:w-6rem lg:h-6rem xl:w-6rem xl:h-6rem">
         </div>
 
         <!-- -->

@@ -1,21 +1,32 @@
 <template>
-    <div class="
-        flex flex-row align-items-center justify-content-center gap-1
-        flex-grow-1 
-        md:flex-grow-1
-        lg:flex-grow-1
-        xl:flex-grow-1
-    ">
-        <InputTextVue 
-            type="text" 
-            class="w-full border-round surface-100 p-2" 
-            size="medium"
-            placeholder="Busque pelo nome do seu restaurante"
-            v-model="name"
-        />
-        <ButtonVue icon="pi pi-search" severity="danger" aria-label="Search" @click="searchRestaurant" @keydown.enter="searchRestaurant">
-            <i class="pi pi-search"></i>
-        </ButtonVue>
+    <div class="flex flex-column flex-grow-1 align-items-center justify-content-center gap-1 md:flex-grow-1 lg:flex-grow-1 xl:flex-grow-1">
+
+        <!--  -->
+        <div class="flex flex-wrap gap-3">
+            <p>Pesquisar por: </p>
+            <div class="flex align-items-center">
+                <RadioButtonVue v-model="filter.typeFilter" inputId="restaurantFilter" name="restaurant" value="restaurant" />
+                <label for="ingredient1" class="ml-2">Restaurante</label>
+            </div>
+            <div class="flex align-items-center">
+                <RadioButtonVue v-model="filter.typeFilter" inputId="itemFilter" name="item" value="item" />
+                <label for="ingredient2" class="ml-2">Itens</label>
+            </div>
+        </div>
+
+
+        <div class="flex flex-row flex-grow-1">
+            <InputTextVue 
+                type="text" 
+                class="w-full border-round surface-100 p-2" 
+                size="medium"
+                placeholder="Busque pelo nome do seu restaurante"
+                v-model="filter.searchValue"
+            />
+            <ButtonVue icon="pi pi-search" severity="danger" aria-label="Search" @click="searchFilter" @keydown.enter="searchFilter">
+                <i class="pi pi-search"></i>
+            </ButtonVue>
+        </div>
     </div>
 </template>
 
@@ -29,7 +40,10 @@ export default defineComponent({
 
     data(){
         return {
-            name: ''
+            filter: {
+                typeFilter: '',
+                searchValue: ''
+            }
         }
     },
 
@@ -38,8 +52,8 @@ export default defineComponent({
         /**
          * 
         */
-        searchRestaurant() {
-            this.state.dispatch('getRestaurantsByFilter', this.name);
+        searchFilter() {
+            this.state.dispatch('getRestaurantsByFilter', this.filter);
         }
 
     },
