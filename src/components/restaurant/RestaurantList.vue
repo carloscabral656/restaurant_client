@@ -1,8 +1,6 @@
 <template>
     <main class="w-100">
-
-        {{ isLoading }}
-
+        
         <template v-if="isLoading">
             <div class="w-100 h-full flex flex-row justify-content-center">
                 <SpinnerVue class="flex flex-row align-self-center justify-self-center"/>
@@ -37,6 +35,12 @@ export default defineComponent({
 
     computed: {
         ...mapGetters(['restaurants', 'isLoading', 'emptyResponse'])
+    },
+
+    watch: {
+        isLoading() {
+            alert("Mudou")
+        }
     },
 
     components: {

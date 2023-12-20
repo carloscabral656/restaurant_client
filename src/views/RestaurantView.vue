@@ -1,15 +1,21 @@
 <template>
+
+    <!-- List -->
     <template v-if="Object.keys(choosenRestaurant).length != 0">
         <BannerRestaurantComponent :restaurant="choosenRestaurant"/>
         <MenusComponent :menus="choosenRestaurant?.menus" />
     </template>
 
+    <!-- Teleport -->
     <template v-else>
-        <div class="flex flex-column justify-content-center h-full">
-            <SpinnerVue />
-            <p>Aguarde...</p>
-        </div>
+        <Teleport to="body">
+            <div class="w-100 h-full flex flex-column align-items-center justify-content-center">
+                <SpinnerVue aria-label="Loading" strokeWidth="8"/>
+                <p>Aguarde! Estamos carregando as informações do produto</p>
+            </div>
+        </Teleport>
     </template>
+    
 </template>
 
 

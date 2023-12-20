@@ -1,18 +1,18 @@
 <template>
-    <div class="relative flex flex-column w-100 h-50rem md:h-40rem lg:h-40rem xl:h-40rem">
+    <div class="relative flex flex-column w-100 shadow-1">
 
         <!-- Banner's Image -->
-        <div class="surface-900 w-100 bg-contain h-9rem sm:h-6rem md:h-7rem bg-cover lg:h-8rem bg-contain xl:h-10rem"
+        <div class="surface-900 w-100 h-9rem sm:h-6rem md:h-7rem bg-cover lg:h-8rem bg-cover xl:h-10rem"
             :style="bannerGastronomyImage"
         >
         </div>
 
         <!-- Banner's Information -->
-        <div class="surface-ground w-100 text-center h-20rem sm:h-4rem md:h-7rem lg:h-8rem xl:h-10rem">
+        <div class="surface-ground w-100 text-center h-15rem md:h-15rem lg:h-15rem xl:h-15rem">
             <h1 class="text-center">{{ restaurant?.name }}</h1>
-            <EvaluationComponent :evaluation="restaurant.evaluation"/>
-            <h2 class="text-center">{{ restaurant?.description.length > 30 ? `${restaurant?.description.substring(0, 30)} ...` :  restaurant?.description}}</h2>
-            <h2 class="text-center">{{ restaurant?.address?.addressAsString }}</h2>
+            <p class="text-center">{{ restaurant?.description.length > 30 ? `${restaurant?.description.substring(0, 30)} ...` :  restaurant?.description}}</p>
+            <p><span class="pi pi-phone mr-2"></span>{{ restaurant.phone }}</p>
+            <p class="text-center"><i class="pi pi-map-marker mr-2"></i>{{ restaurant?.address }}</p>
         </div>
 
         <!-- Restauran's Image -->

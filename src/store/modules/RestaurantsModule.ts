@@ -4,7 +4,7 @@ import { AxiosError } from "axios";
 import { plainToInstance } from "class-transformer";
 import FilterInterface from "@/interfaces/FilterInterface";
 
-const AuthModule = {
+const RestaurantModule = {
 
     // Aplication's state (Core Informations)
     state: {
@@ -79,7 +79,7 @@ const AuthModule = {
         /**
          * 
         */
-        isLoading(state: any, valor: boolean){
+        setLoading(state: any, valor: boolean){
             state.isLoading = valor;
         },
 
@@ -94,21 +94,19 @@ const AuthModule = {
         */
         getRestaurants({commit}: any): void {
             commit('refreshRestaurants');
-            commit('isLoading', true);
+            commit('setLoading', true);
             try{
                 createAxiosInstance(this)
                 .get('/restaurants')
                 .then((response) => {
-                    console.log(response)
-                    const restaurants = response.data
+                    commit('setLoading', false);
+                    const restaurants = response.data;
                     commit('saveRestaurants', restaurants);
-                    commit('isLoading', false);
                 });
             }catch(error){
-                commit('isNotLoading');
-                console.log("Error", error)
+                commit('setLoading', false);
             }
-            commit('isLoading', false);
+            commit('setLoading', false);
         },
 
         /**
@@ -116,25 +114,24 @@ const AuthModule = {
          * @returns void
         */
         getChoosenRestaurant({commit}: any, id: number): void {
-            commit('isLoading', true);
+            commit('setLoading', true);
             try{
                 createAxiosInstance(this)
                 .get(`/restaurants/${id}`)
                 .then(response => {
+                    commit('setLoading', false);
                     const restaurant = response.data.data;
                     commit('saveChoosenRestaurant', restaurant);
-                    commit('isLoading', false);
                 })
                 .catch((error: AxiosError) => {
                     console.log(error)
-                    commit('isLoading', false);
+                    commit('setLoading', false);
                 });
             }catch(error){
-                commit('isNotLoading');
                 console.log("Error", error)
-                commit('isLoading', false);
+                commit('setLoading', false);
             }
-            commit('isLoading', false);
+            commit('setLoading', false);
         },
 
         /**
@@ -143,7 +140,7 @@ const AuthModule = {
         */
         getRestaurantsByFilter({commit}: any, filter: FilterInterface): void {
             commit('refreshRestaurants');
-            commit('isLoading');
+            commit('setLoading', true);
             // Creating params
             const params = new URLSearchParams();
 
@@ -163,16 +160,16 @@ const AuthModule = {
                 .then(response => {
                     const restaurant = response.data;
                     commit('saveRestaurants', restaurant);
-                    commit('isNotLoading');
+                    commit('setLoading', false);
                 });
             }catch(error){
-                commit('isNotLoading');
+                commit('setLoading', false);
                 console.log("Error", error)
             }
-            commit('isNotLoading');
+            commit('setLoading', false);
         }
 
     }
 }
 
-export default AuthModule;
+export default RestaurantModule;

@@ -23,6 +23,11 @@ export default class Restaurant {
     @IsString()
     private _description: string;
 
+    @Expose({name: 'phone'})
+    @IsNotEmpty()
+    @IsString()
+    private _phone: string;
+
     @Expose({name: 'img_restaurant'})
     @IsNotEmpty()
     @IsString()
@@ -52,7 +57,7 @@ export default class Restaurant {
     @IsNotEmpty()
     private _menus: Menu[] | null;
 
-    constructor(id: number, name: string, description: string, image: string, gastronomy: Gastronomy | null, owner: Owner | null, evaluation: number, address: Address | null, menus: Menu[] | null){
+    constructor(id: number, name: string, description: string, image: string, gastronomy: Gastronomy | null, owner: Owner | null, evaluation: number, address: Address | null, menus: Menu[] | null, phone: string){
         this._id = id;
         this._name = name;
         this._description = description;
@@ -62,6 +67,7 @@ export default class Restaurant {
         this._evaliation = evaluation;
         this._address = address;
         this._menus = menus;
+        this._phone = phone;
     }
 
     get id(): number {
@@ -94,6 +100,10 @@ export default class Restaurant {
 
     get description(): string {
         return this._description;
+    }
+
+    get phone(): string {
+        return this._phone;
     }
 
 }
