@@ -84,7 +84,7 @@ const AuthModule = {
                     commit('userAutenticated')
                 })
                 .catch((error: AxiosError) => {
-                    alert(error.code)
+                    console.log(error)
                 });
             }catch(error){
                 console.log("Error", error)
@@ -104,7 +104,7 @@ const AuthModule = {
                     commit('userAutenticated')
                 });
             }catch(error){
-                alert(error)
+                console.log(error)
             }
         },
 

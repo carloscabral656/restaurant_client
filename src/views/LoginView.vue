@@ -110,7 +110,6 @@ export default defineComponent({
 
     watch: {
         isAuthenticated(){
-            alert("ASDASD")
             this.$router.push('/index')
         },
 

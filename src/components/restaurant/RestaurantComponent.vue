@@ -8,8 +8,7 @@
         overflow-hidden border-round border-solid border-50 shadow-3 cursor-pointer
     " @click="chooseRestaurant">
         <!-- Containers -->
-        <div class="
-            flex flex-column flex-1 w-100 relative h-100">
+        <div class="flex flex-column flex-1 w-100 relative h-100">
 
              <!-- Gastronomy's Image -->
             <GastronomyImage :gastronomyImage="data?.gastronomy?.image"/>

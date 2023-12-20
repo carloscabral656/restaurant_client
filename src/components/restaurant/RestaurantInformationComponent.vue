@@ -1,8 +1,8 @@
 <template>
-    <div class="flex flex-column gap-2">
-        <p class="m-1 sm:text-xl md:text-2xl lg:4-xl xl:4-xl text-left">{{ restaurant.name ?? "-"}}</p>
-        <p class="m-1 text-500 font-bold text-sm md:text-base lg:text-base xl:text-base text-left">{{ restaurant?.gastronomy?.description ?? "-"}}</p>
-        <div class="flex flex-row gap-2 md:gap-3 lg:gap-3 xl:gap-3">
+    <div class="flex flex-column gap-2 md:gap-2 lg:gap-2 xl:gap-3">
+        <p class="m-1 text-left text-sm md:text-sm lg:text-lg xl:text-lg">{{ restaurant.name ?? "-"}}</p>
+        <p class="m-1 text-500 font-bold text-sm md:text-sm lg:text-lg xl:text-lg text-left">{{ restaurant?.gastronomy?.description ?? "-"}}</p>
+        <div class="flex flex-row gap-2 md:gap-2 lg:gap-3 xl:gap-3">
             <EvaluationComponent :evaluation="restaurant?.evaluation"/>
             <div class="flex flex-row justify-content-between text-500">&#8226;</div>
             <TimeForRecieveComponent :time="waitingTime" />

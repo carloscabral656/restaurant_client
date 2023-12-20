@@ -38,4 +38,8 @@ export default class User {
         return this._email
     }
 
+    get address(): Address {
+        return this._address;
+    }
+
 }

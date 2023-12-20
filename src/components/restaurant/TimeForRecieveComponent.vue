@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-row align-items-center justify-content-between">
-        <i class="pi pi-clock mr-2 text-500"> </i> <span class="font-light text-500 font-bold">{{ time?.from }} - {{ time?.until }} min</span>
+        <i class="pi pi-clock mr-2 text-500 text-sm md:text-sm lg:text-lg xl:text-lg"> </i> <span class="font-light text-500 font-bold text-sm md:text-sm lg:text-lg xl:text-lg">{{ time?.from }} - {{ time?.until }} min</span>
     </div>
 </template>
 

@@ -1,16 +1,19 @@
 <template>
-    <header class="flex flex-column md:flex-row lg:flex-row xl:flex-row m-auto gap-2 h-10rem border-bottom-1 border-bottom-solid p-4 border-500 shadow-2">
-
-        <!-- App's Image -->
-        <div class="p-0 flex flex-row align-items-center justify-content-center md:block lg:block xl:block p-4 bg-no-repeat bg-contain">
-            <img src="/boca.jpg" alt="">
+    <header class="grid border-bottom-1 p-4 border-500 shadow-2">
+        <!-- App's image -->
+        <div class="col-12 md:col-12 lg:col-2 xl:col-2 flex flex-row justify-content-center">
+            <img src="/boca.png" alt="" width="100" height="100">
         </div>
 
-        <!-- -->
-        <SearchComponent/>
+        <!-- Search component -->
+        <div class="col-12 md:col-12 lg:col-7 xl:col-7">
+            <SearchComponent/>
+        </div>
 
-        <!-- -->
-        <UserDataComponent/>
+        <!-- User data component -->
+        <div class="hidden md:hidden lg:flex lg:flex-row xl:flex xl:flex-row">
+            <UserDataComponent/>
+        </div>
     </header> 
 </template>
 

@@ -13,7 +13,13 @@ const AuthModule = {
        restaurants: [] as Array<Restaurant>,
 
        //
-       choosenRestaurant: {} as Restaurant
+       choosenRestaurant: {} as Restaurant,
+
+       //
+       isLoading: false,
+
+       // 
+       emptyResponse: false
 
     },
     
@@ -25,6 +31,14 @@ const AuthModule = {
 
         choosenRestaurant: (state: any): any => {
             return state.choosenRestaurant;
+        },
+
+        isLoading: (state: any): any => {
+            return state.isLoading;
+        },
+
+        emptyResponse: (state: any): any => {
+            return state.emptyResponse;
         }
     },
     
@@ -35,10 +49,11 @@ const AuthModule = {
          * 
         */
         saveRestaurants(state: any, restaurants: Array<any>): void {
+            if(restaurants.length == 0) state.emptyResponse = true;
+            else state.emptyResponse = false;
             restaurants.map((restaurant: any) =>  {
                 try{
                     const restaurantConverted = plainToInstance(Restaurant, restaurant);
-                    console.log(restaurantConverted)
                     state.restaurants.push(restaurantConverted);
                 }catch(error){
                     console.log(error)
@@ -54,9 +69,19 @@ const AuthModule = {
             state.choosenRestaurant = choosenRestaurantConverted;
         },
 
+        /**
+         * 
+        */
         refreshRestaurants(state: any) {
             state.restaurants = [];
-        }
+        },
+
+        /**
+         * 
+        */
+        isLoading(state: any, valor: boolean){
+            state.isLoading = valor;
+        },
 
     },
 
@@ -69,17 +94,21 @@ const AuthModule = {
         */
         getRestaurants({commit}: any): void {
             commit('refreshRestaurants');
+            commit('isLoading', true);
             try{
                 createAxiosInstance(this)
                 .get('/restaurants')
                 .then((response) => {
                     console.log(response)
                     const restaurants = response.data
-                    commit('saveRestaurants', restaurants)
+                    commit('saveRestaurants', restaurants);
+                    commit('isLoading', false);
                 });
             }catch(error){
+                commit('isNotLoading');
                 console.log("Error", error)
             }
+            commit('isLoading', false);
         },
 
         /**
@@ -87,19 +116,25 @@ const AuthModule = {
          * @returns void
         */
         getChoosenRestaurant({commit}: any, id: number): void {
+            commit('isLoading', true);
             try{
                 createAxiosInstance(this)
                 .get(`/restaurants/${id}`)
                 .then(response => {
                     const restaurant = response.data.data;
                     commit('saveChoosenRestaurant', restaurant);
+                    commit('isLoading', false);
                 })
                 .catch((error: AxiosError) => {
-                    alert(error.response?.status)
+                    console.log(error)
+                    commit('isLoading', false);
                 });
             }catch(error){
+                commit('isNotLoading');
                 console.log("Error", error)
+                commit('isLoading', false);
             }
+            commit('isLoading', false);
         },
 
         /**
@@ -108,7 +143,7 @@ const AuthModule = {
         */
         getRestaurantsByFilter({commit}: any, filter: FilterInterface): void {
             commit('refreshRestaurants');
-
+            commit('isLoading');
             // Creating params
             const params = new URLSearchParams();
 
@@ -128,10 +163,13 @@ const AuthModule = {
                 .then(response => {
                     const restaurant = response.data;
                     commit('saveRestaurants', restaurant);
+                    commit('isNotLoading');
                 });
             }catch(error){
+                commit('isNotLoading');
                 console.log("Error", error)
             }
+            commit('isNotLoading');
         }
 
     }

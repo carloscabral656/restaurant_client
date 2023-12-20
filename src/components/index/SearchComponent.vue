@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-column flex-grow-1 align-items-center justify-content-center gap-1 md:flex-grow-1 lg:flex-grow-1 xl:flex-grow-1">
+    <div class="flex flex-column align-items-center gap-3 md:gap-3 lg:gap-4 xl:gap-4">
 
         <!--  -->
         <div class="flex flex-grow-1 flex-wrap gap-3">
@@ -14,7 +14,7 @@
         </div>
 
 
-        <div class="flex flex-row" style="width: 70%;">
+        <div class="flex flex-row flex-grow-1 w-10">
             <InputTextVue 
                 type="text" 
                 class="flex-grow-1 border-round surface-100 p-2" 

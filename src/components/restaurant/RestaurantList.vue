@@ -1,12 +1,19 @@
 <template>
     <main class="w-100">
 
-        <template v-if="restaurants.length === 0">
-            <SpinnerVue class="flex flex-row align-self-center justify-self-center"/>
+        {{ isLoading }}
+
+        <template v-if="isLoading">
+            <div class="w-100 h-full flex flex-row justify-content-center">
+                <SpinnerVue class="flex flex-row align-self-center justify-self-center"/>
+            </div>
+        </template>
+        <template v-else-if="!isLoading">
+            <GridComponent :data="restaurants" :component="RestaurantComponent" />
         </template>
 
-        <GridComponent :data="restaurants" :component="RestaurantComponent" />
-        
+        <template v-if="emptyResponse">Não foi encontrado nenhuma informação.</template>
+
     </main>
 </template>
 
@@ -29,7 +36,7 @@ export default defineComponent({
     },
 
     computed: {
-        ...mapGetters(['restaurants'])
+        ...mapGetters(['restaurants', 'isLoading', 'emptyResponse'])
     },
 
     components: {

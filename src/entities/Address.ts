@@ -66,8 +66,8 @@ export default class Address {
         return this._state;
     }
 
-    get addressAsString(): string {
-        return `${this.street} Nº ${this.number} - ${this.city} - ${this.state}`;
+    toString(): string {
+        return `${this.street} nº ${this.number}, ${this.city} - ${this.state}`;
     }
 
 }
