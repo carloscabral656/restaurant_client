@@ -46,7 +46,7 @@ export default class Address {
         return this._id;
     }
 
-    get street():string {
+    get street(): string {
         return this._street;
     }
 

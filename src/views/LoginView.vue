@@ -3,15 +3,15 @@
 
         <!-- First row (Back and Register User)-->
         <div class="flex flex-row flex-wrap justify-content-between">
-            <div class="flex align-items-center justify-content">
+            <div class="top-0 left-0 mr-2 mb-2">
                 <router-link to="/">
-                    <ButtonVue icon="pi pi-arrow-left" severity="danger"  rounded/>
+                    <ButtonVue class="w-3rem h-3rem md:w-3rem md:h-3rem lg:w-4rem lg:h-4rem" icon="pi pi-arrow-left text-1xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
                 </router-link>
             </div>
 
             <div>
                 <div>Não tem conta?</div>
-                <router-link to="/register-user" class="text-red-600 no-underline font-bold">
+                <router-link to="#" class="text-red-600 no-underline font-bold">
                     Cadastre-se
                 </router-link>
             </div>
@@ -19,9 +19,11 @@
 
         <!-- -->
         <div class="
-            w-full max-w-full h-30rem
+            w-100 max-w-full 
+            h-20rem md:h-20rem lg:h-20rem xl:20rem
             flex align-items-center justify-content-start
-            text-3xl font-bold
+            text-4xl
+            font-bold
         ">
             Acesse seus restaurantes prediletos
         </div>
@@ -31,14 +33,14 @@
             
             <div class="
                 flex flex-column
-                sm:w-100
+                w-100
                 md:w-50
                 lg:w-4
                 xl:w-4
                 gap-2 mb-5 w-full
                 outline-none
             ">
-                <label for="email">E-mail</label>
+                <label for="email" class="text-xl">E-mail</label>
                 <InputTextVue id="email" size="large" v-model="user.email" inputClass="w-100"/>
                 <small id="email">Informe o seu e-mail.</small>
             </div>
@@ -52,7 +54,7 @@
                 gap-2 mb-5 w-full
                 outline-none
             ">
-                <label for="password">Senha</label>
+                <label for="password" class="text-xl">Senha</label>
                 <PasswordVue id="password" inputClass="w-full" size="large" :feedback="false" v-model="user.password" />
                 <small id="password">Informe a sua senha.</small>
             </div>
@@ -64,7 +66,7 @@
                 lg:w-4
                 xl:w-4
                 gap-2 mb-5 w-full">
-                <ButtonVue size="large" label="Entrar" severity="danger" @click="validate"/>
+                <ButtonVue size="large" label="Entrar" severity="danger" @click="validate" />
             </div>
             
             <div class="
@@ -74,7 +76,7 @@
                 xl:w-4
                 text-center
             ">
-                <router-link to="/reset-password" class=" text-white no-underline font-bold">
+                <router-link to="#" class=" text-white no-underline font-bold">
                     Esqueceu sua senha?
                 </router-link>
             </div>
@@ -103,18 +105,18 @@ export default defineComponent({
     computed: {
         ...mapGetters([
             'isAuthenticated',
-            'hasMessage',
-            'getMessage'
+            'hasResponse',
+            'getResponse'
         ])
     },
 
     watch: {
         isAuthenticated(){
-            this.$router.push('/index')
+            this.$router.push('/index');
         },
 
-        hasMessage() {
-            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: `${this.getMessage}`, life: 3000 });
+        hasResponse() {
+            this.$toast.add({ severity: 'error', summary: 'Error Message', detail: `${this.getResponse.message}`, life: 3000 });
         }
     },
 

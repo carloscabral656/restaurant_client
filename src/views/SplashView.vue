@@ -6,7 +6,7 @@
         </div>
         <div class="fixed bottom-0 right-0 mr-2 mb-2">
             <router-link to="/index">
-                <ButtonVue class="w-3rem h-3rem md:w-3rem md:h-3rem lg:w-4rem lg:h-4rem" icon="pi pi-arrow-right text-1xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
+                <ButtonVue class="w-3rem h-3rem md:w-4rem md:h-4rem lg:w-4rem lg:h-4rem" icon="pi pi-arrow-right text-1xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
             </router-link>
         </div>
     </div>

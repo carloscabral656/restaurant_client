@@ -1,3 +1,4 @@
+import ResponseInterface from "@/interfaces/ResponseInterface";
 import createAxiosInstance from "@/requests/ConfigsDefault";
 import { AxiosError, AxiosResponse } from "axios";
 
@@ -13,7 +14,7 @@ const AuthModule = {
         authenticated: false,
 
         // Server's response
-        responseMessage: null
+        response: {} as ResponseInterface
 
     },
     
@@ -27,16 +28,12 @@ const AuthModule = {
             return state.token
         },
 
-        getResponseError: (state: any): string => {
-            return state.responseMessage
+        hasResponse: (state: any): boolean => {
+            return state.response;
         },
 
-        hasMessage: (state: any): boolean => {
-            return state.responseMessage === null;
-        },
-
-        getMessage: (state: any): string => {
-            return state.responseMessage;
+        getResponse: (state: any): string => {
+            return state.response;
         },
     },
     
@@ -49,17 +46,30 @@ const AuthModule = {
             state.token = token;
         },
 
+        //
         storeResponseError(state: any, response: string) {
             state.responseMessage = response;
         },
 
+        //
         resetToken(state: any){
             localStorage.removeItem('token')
             state.token = null;
         },
 
+        //
+        resetResponse(state: any){
+            state.response = {};
+        },
+
+        //
         userAutenticated(state: any){
             state.authenticated = true;
+        },
+
+        //
+        storeResponse(state: any, response: any){
+            state.response = response;
         }
     },
 
@@ -75,16 +85,15 @@ const AuthModule = {
         authenticate({commit}: any, credentials: Credential) : void {
             try{
                 createAxiosInstance(this)
-                .post(
-                    '/auth/login',
-                    credentials
-                )
+                .post('/auth/login', credentials)
                 .then((response: AxiosResponse) => {
                     commit('saveToken', response.data.data.token)
                     commit('userAutenticated')
                 })
                 .catch((error: AxiosError) => {
-                    console.log(error)
+                    if(error.response && [401, 422].includes(error.response.status)){
+                        commit('storeResponse', error.response.data)
+                    }
                 });
             }catch(error){
                 console.log("Error", error)

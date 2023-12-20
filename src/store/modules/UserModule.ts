@@ -36,7 +36,7 @@ const UserModule = {
             .then((response: AxiosResponse) => {
                 commit('saveUser', response.data.data)
             }).catch((error: AxiosError) => {
-                alert(error.response?.status)
+                console.log(error.response?.status)
             });
         }
     }

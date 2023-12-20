@@ -2,10 +2,12 @@
     <main class="w-100">
         
         <template v-if="isLoading">
-            <div class="w-100 h-full flex flex-row justify-content-center">
-                <SpinnerVue class="flex flex-row align-self-center justify-self-center"/>
+            <div class="w-100 h-full flex flex-column align-items-center justify-content-center">
+                <SpinnerVue aria-label="Loading" strokeWidth="8"/>
+                <p>Aguarde! Estamos carregando as informações do produto</p>
             </div>
         </template>
+        
         <template v-else-if="!isLoading">
             <GridComponent :data="restaurants" :component="RestaurantComponent" />
         </template>

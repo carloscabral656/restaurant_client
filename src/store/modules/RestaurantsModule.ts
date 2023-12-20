@@ -102,6 +102,9 @@ const RestaurantModule = {
                     commit('setLoading', false);
                     const restaurants = response.data;
                     commit('saveRestaurants', restaurants);
+                })
+                .catch((response) => {
+                    console.log(response)
                 });
             }catch(error){
                 commit('setLoading', false);
@@ -161,6 +164,9 @@ const RestaurantModule = {
                     const restaurant = response.data;
                     commit('saveRestaurants', restaurant);
                     commit('setLoading', false);
+                })
+                .catch((response) => {
+                    console.log(response)
                 });
             }catch(error){
                 commit('setLoading', false);
