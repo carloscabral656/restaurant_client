@@ -19,7 +19,7 @@
                 type="text" 
                 class="flex-grow-1 border-round surface-100 p-2" 
                 size="medium"
-                placeholder="Busque por um dos itens acima ..."
+                placeholder="Busque por restaurante ou item ..."
                 v-model="filter.searchValue"
             />
             <ButtonVue icon="pi pi-search" severity="danger" aria-label="Search" @click="searchFilter" @keydown.enter="searchFilter">

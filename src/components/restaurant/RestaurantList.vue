@@ -10,7 +10,12 @@
             <GridComponent :data="restaurants" :component="RestaurantComponent" />
         </template>
 
-        <template v-if="emptyResponse">Não foi encontrado nenhuma informação.</template>
+        <template v-if="emptyResponse">
+            <div class="h-full flex flex-column justify-content-center align-items-center gap-4">
+                <img src="naoecontrado.jpg">
+                Não foi encontrado.
+            </div>
+        </template>
 
     </main>
 </template>

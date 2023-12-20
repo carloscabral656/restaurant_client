@@ -4,9 +4,9 @@
             <h1>Quem tem boca</h1>
             <img src="/boca.png" class="col-6 h-10rem w-10rem"/>
         </div>
-        <div class="absolute bottom-0 right-0 mb-4 mr-4">
-            <router-link to="/login">
-                <ButtonVue class="w-5rem h-5rem" icon="pi pi-arrow-right text-3xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
+        <div class="fixed bottom-0 right-0 mr-2 mb-2">
+            <router-link to="/index">
+                <ButtonVue class="w-3rem h-3rem md:w-3rem md:h-3rem lg:w-4rem lg:h-4rem" icon="pi pi-arrow-right text-1xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
             </router-link>
         </div>
     </div>

@@ -22,6 +22,16 @@ body {
   margin: 0;
   padding: 0;
 }
+
+#app {
+  height: inherit;
+  width: inherit;
+}
+
+main {
+  height: inherit;
+  width: inherit;
+}
 </style>
 
 

@@ -15,6 +15,14 @@
             </div>
         </Teleport>
     </template>
+
+    <Teleport to="body">
+        <div class="fixed top-0 left-0 mt-2 ml-2">
+            <router-link to="/index">
+                <ButtonVue class="w-3rem h-3rem md:w-3rem md:h-3rem lg:w-4rem lg:h-4rem" icon="pi pi-arrow-left text-1xl md:text-4xl lg:text-3xl xl:text-3xl" severity="danger" rounded/>
+            </router-link>
+        </div>
+    </Teleport>
     
 </template>
 

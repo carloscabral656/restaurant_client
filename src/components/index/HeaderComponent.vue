@@ -1,5 +1,5 @@
 <template>
-    <header class="grid border-bottom-1 p-4 border-500 shadow-2">
+    <header class="grid border-bottom-1 p-4 border-500 shadow-2 m-0">
         <!-- App's image -->
         <div class="col-12 md:col-12 lg:col-2 xl:col-2 flex flex-row justify-content-center">
             <img src="/boca.png" alt="" width="100" height="100">
