@@ -3,11 +3,16 @@
 
         <!-- App's image -->
         <div class="col-12 md:col-12 lg:col-1 xl:col-1 flex flex-row justify-content-center">
-            <img src="/boca.png" alt="" width="100" height="100">
+            <img src="/boca.png" alt="" width="70" height="70">
+        </div>
+
+        <!-- Options Component -->
+        <div class="col-12 md:col-12 lg:col-4 xl:col-4 justify-content-center">
+            <OptionsComponent />
         </div>
 
         <!-- Search component -->
-        <div class="col-12 md:col-12 lg:col-4 xl:col-4 justify-content-center">
+        <div class="col-12 md:col-12 lg:col-3 xl:col-3 justify-content-center">
             <SearchComponent/>
         </div>
 
@@ -36,6 +41,7 @@ import UserAddressComponent from '@/components/index/UserAddressComponent.vue';
 import SearchComponent   from '@/components/index/SearchComponent.vue';
 import LogoutComponent   from '@/components/index/LogoutComponent.vue';
 import BagComponent from '@/components/index/BagComponent.vue';
+import OptionsComponent from '@/components/index/OptionsComponent.vue';
 
 export default defineComponent({
     name: "HeaderComponent",
@@ -43,7 +49,8 @@ export default defineComponent({
     UserAddressComponent,
     SearchComponent,
     LogoutComponent,
-    BagComponent
+    BagComponent,
+    OptionsComponent
 }
 });
 </script>
