@@ -7,12 +7,12 @@
         </div>
 
         <!-- Options Component -->
-        <div class="col-12 md:col-12 lg:col-4 xl:col-4 justify-content-center">
+        <div class="col-12 md:col-12 lg:col-3 xl:col-3 justify-content-center">
             <OptionsComponent />
         </div>
 
         <!-- Search component -->
-        <div class="col-12 md:col-12 lg:col-3 xl:col-3 justify-content-center">
+        <div class="col-12 md:col-12 lg:col-4 xl:col-4 justify-content-center">
             <SearchComponent/>
         </div>
 
