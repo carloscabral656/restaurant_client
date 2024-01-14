@@ -6,9 +6,6 @@
             {{ user.address }}
             <i class="pi pi-angle-down text-right font-medium font-bold text-red-600" @click="changeAddress"></i>
         </div>
-        <div>
-            <i class="pi pi-angle-down text-right font-medium font-bold text-red-600" @click="logout"></i>
-        </div>
     </div>
 </template>
 
