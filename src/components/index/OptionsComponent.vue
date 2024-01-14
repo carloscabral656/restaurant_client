@@ -1,9 +1,9 @@
 <template>
     <div class="h-full flex justify-content-around align-items-center gap-3">
-        <span>Home</span>
-        <span>Restaurants</span>
-        <span>Drinks</span>
-        <span>Dishes</span>
+        <span class="hover:text-red-600 hover:font-bold" style="cursor: pointer;">Home</span>
+        <span class="hover:text-red-600 hover:font-bold" style="cursor: pointer;">Restaurants</span>
+        <span class="hover:text-red-600 hover:font-bold" style="cursor: pointer;">Drinks</span>
+        <span class="hover:text-red-600 hover:font-bold" style="cursor: pointer;">Dishes</span>
     </div>
 </template>
 
