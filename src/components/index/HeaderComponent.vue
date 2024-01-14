@@ -10,9 +10,9 @@
             <SearchComponent/>
         </div>
 
-        <!-- User data component -->
+        <!-- Address data component -->
         <div class="hidden md:hidden lg:flex lg:flex-row xl:flex xl:flex-row">
-            <UserDataComponent/>
+            <UserAddressComponent/>
         </div>
     </header> 
 </template>
@@ -20,13 +20,13 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import UserDataComponent from '@/components/index/UserDataComponent.vue';
+import UserAddressComponent from '@/components/index/UserAddressComponent.vue';
 import SearchComponent   from '@/components/index/SearchComponent.vue';
 
 export default defineComponent({
     name: "HeaderComponent",
     components: {
-        UserDataComponent,
+        UserAddressComponent,
         SearchComponent
     }
 });

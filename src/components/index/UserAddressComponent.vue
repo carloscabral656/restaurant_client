@@ -4,6 +4,10 @@
         <div class="text-right font-medium font-bold text-red-600">
             <i class="pi pi-map-marker"></i>
             {{ user.address }}
+            <i class="pi pi-angle-down text-right font-medium font-bold text-red-600" @click="changeAddress"></i>
+        </div>
+        <div>
+            <i class="pi pi-angle-down text-right font-medium font-bold text-red-600" @click="logout"></i>
         </div>
     </div>
 </template>
@@ -17,6 +21,15 @@ export default defineComponent({
     data(){
         return {
 
+        }
+    },
+    methods: {
+        changeAddress(){
+            alert("asd")
+        },
+
+        logout(){
+            alert("asd")
         }
     },
     computed: {
